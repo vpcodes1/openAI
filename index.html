@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaVizija Studio — Digitalna iskustva koja osvajaju tržište</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scroll-progress" data-scroll-progress>
+        <span></span>
+    </div>
+    <div class="cursor" data-cursor></div>
+    <div class="page-glow"></div>
+    <header class="top-bar" data-animate="fade-down">
+        <div class="logo">Nova<span>Vizija</span></div>
+        <nav class="main-nav">
+            <a href="#services">Usluge</a>
+            <a href="#process">Proces</a>
+            <a href="#work">Studije slučaja</a>
+            <a href="#testimonials">Utisci</a>
+            <a href="#insights">Znanje</a>
+        </nav>
+        <a href="#contact" class="btn primary ghosted">Zakaži konsultaciju</a>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-decoration hero-decoration--left"></div>
+            <div class="hero-decoration hero-decoration--right"></div>
+            <div class="hero-inner">
+                <div class="hero-content" data-animate="fade-up" data-delay="100">
+                    <p class="eyebrow">Studio za digitalne proizvode · 2009—2024</p>
+                    <h1>
+                        Kreiramo zapanjujuća web iskustva<br>
+                        koja pretvaraju posetioce u ambasadore brenda.
+                    </h1>
+                    <p class="subtitle">
+                        Naši interdisciplinarni timovi kombinuju strategiju, dizajn i development u jedinstven flow koji vodi do
+                        merljivog rasta. U proseku podižemo konverzije za 31% kroz proizvode koji istovremeno izgledaju
+                        spektakularno i rade munjevito brzo.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn primary" href="#contact">Rezerviši strateški poziv</a>
+                        <a class="btn secondary" href="#work">Pogledaj rezultate</a>
+                    </div>
+                    <div class="hero-badges">
+                        <div class="floating-badge" data-animate="rise" data-delay="200">
+                            <span data-counter="3" data-prefix="Top ">0</span>
+                            <small>digitalna agencija u regionu</small>
+                        </div>
+                        <div class="floating-badge" data-animate="rise" data-delay="350">
+                            <span data-counter="7" data-suffix="M €" data-prefix="+">0</span>
+                            <small>novi prihodi za klijente 2023.</small>
+                        </div>
+                        <div class="floating-badge" data-animate="rise" data-delay="500">
+                            <span data-counter="97" data-suffix="%">0</span>
+                            <small>klijenata nas preporučuje</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-showcase" data-animate="float" data-delay="200" data-parallax>
+                    <div class="showcase-card">
+                        <div class="showcase-header">
+                            <div class="pill success">Live</div>
+                            <div class="pill neutral">Next.js + Astro</div>
+                            <div class="pill neutral">Design System</div>
+                        </div>
+                        <div class="showcase-body">
+                            <h3>FluxPay Investor Hub</h3>
+                            <p>Kompletno re-imaginarno iskustvo investiranja za fintech lidera sa preko 120k aktivnih korisnika.</p>
+                            <ul>
+                                <li>Strategija proizvoda i monetizacije</li>
+                                <li>Napredne animacije i mikrointerakcije</li>
+                                <li>Integracije sa Stripe Treasury i Plaid</li>
+                            </ul>
+                            <div class="progress-trail">
+                                <span class="progress-label">Konverzija leadova</span>
+                                <div class="progress-bar"><span data-progress="92"></span></div>
+                            </div>
+                            <div class="progress-trail">
+                                <span class="progress-label">Brzina učitavanja</span>
+                                <div class="progress-bar alt"><span data-progress="88"></span></div>
+                            </div>
+                        </div>
+                        <div class="showcase-footer">
+                            <div class="metric">
+                                <strong data-counter="63" data-prefix="+" data-suffix="%">0</strong>
+                                <span>Aktivnih korisnika</span>
+                            </div>
+                            <div class="metric">
+                                <strong data-counter="41" data-prefix="−" data-suffix="%">0</strong>
+                                <span>Trošak akvizicije</span>
+                            </div>
+                            <div class="metric">
+                                <strong data-counter="3.4" data-suffix="x">0</strong>
+                                <span>ROI u 6 meseci</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="scroll-indicator" href="#services">Scroll za više</a>
+        </section>
+
+        <section class="section partners" id="partners">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Partneri koji nam veruju</h2>
+                <p>Gradimo dugoročne saradnje sa tehnološkim pionirima, scale-up timovima i globalnim korporacijama.</p>
+            </div>
+            <div class="logo-marquee" aria-label="Lista klijenata">
+                <div class="logo-track">
+                    <span>Infinitum Labs</span>
+                    <span>FluxPay</span>
+                    <span>Lumina Collective</span>
+                    <span>OrbitOps</span>
+                    <span>NeuroBloom</span>
+                    <span>UrbanPulse</span>
+                    <span>Helios Ventures</span>
+                    <span>Aurora Health</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section services">
+            <div class="section-header" data-animate="fade-up">
+                <h2>End-to-end tim koji vodi vaš proizvod ka tržišnom uspehu</h2>
+                <p>Svaka faza je podržana specijalizovanim stručnjacima, analitikom u realnom vremenu i fokusom na rezultate.</p>
+            </div>
+            <div class="cards-grid">
+                <article class="service-card" data-animate="tilt" data-delay="0" data-hover-tilt>
+                    <div class="card-icon">
+                        <span>01</span>
+                    </div>
+                    <h3>Produktna strategija</h3>
+                    <p>Razumevanje poslovnih ciljeva, korisničkih potreba i definisanje roadmap-a koji otključava rast.</p>
+                    <ul>
+                        <li>Discovery sprintovi</li>
+                        <li>Value proposition dizajn</li>
+                        <li>ROI i growth modeli</li>
+                    </ul>
+                </article>
+                <article class="service-card" data-animate="tilt" data-delay="150" data-hover-tilt>
+                    <div class="card-icon">
+                        <span>02</span>
+                    </div>
+                    <h3>UX/UI orkestracija</h3>
+                    <p>Premium vizuelni identitet, dizajn sistemi i mikrointerakcije koje podižu percepciju brenda.</p>
+                    <ul>
+                        <li>Motion i 3D prototipovi</li>
+                        <li>Inclusive design standardi</li>
+                        <li>Design ops i dokumentacija</li>
+                    </ul>
+                </article>
+                <article class="service-card" data-animate="tilt" data-delay="300" data-hover-tilt>
+                    <div class="card-icon">
+                        <span>03</span>
+                    </div>
+                    <h3>High-end razvoj</h3>
+                    <p>Moderne JavaScript platforme, skalabilna infrastruktura i besprekorno korisničko iskustvo.</p>
+                    <ul>
+                        <li>Next.js, Astro, Remix, Nest</li>
+                        <li>Serverless i edge deploy</li>
+                        <li>QA automatizacija i observability</li>
+                    </ul>
+                </article>
+                <article class="service-card" data-animate="tilt" data-delay="450" data-hover-tilt>
+                    <div class="card-icon">
+                        <span>04</span>
+                    </div>
+                    <h3>Growth partnerstvo</h3>
+                    <p>Kontinuirani eksperimenti, optimizacije i razvoj novih funkcionalnosti za održiv rast.</p>
+                    <ul>
+                        <li>Growth marketing squad</li>
+                        <li>Behavior analytics i CRO</li>
+                        <li>Success roadmap i podrška 24/7</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section metrics" id="process">
+            <div class="metrics-grid">
+                <div class="metric-card" data-animate="fade-up">
+                    <h4>Discovery & strategija</h4>
+                    <p>U prva tri dana dobijate jasno definisan plan, ključne KPI-jeve i prototip koncepta.</p>
+                    <div class="timeline">
+                        <span data-label="Dan 1">Mapiranje ciljeva</span>
+                        <span data-label="Dan 2">UX istraživanje</span>
+                        <span data-label="Dan 3">Produktni blueprint</span>
+                    </div>
+                </div>
+                <div class="metric-card" data-animate="fade-up" data-delay="150">
+                    <h4>Agilni build & launch</h4>
+                    <p>Iterativni sprintovi od dve nedelje, sa demoom i jasnim metrikama na kraju svakog ciklusa.</p>
+                    <div class="timeline">
+                        <span data-label="Sprint">Planiranje</span>
+                        <span data-label="Build">Razvoj</span>
+                        <span data-label="QA">Testiranje</span>
+                        <span data-label="Launch">Lansiranje</span>
+                    </div>
+                </div>
+                <div class="metric-card" data-animate="fade-up" data-delay="300">
+                    <h4>Optimizacija & rast</h4>
+                    <p>Stalna analitika, A/B eksperimenti i roadmap koji održava vaš proizvod korak ispred konkurencije.</p>
+                    <div class="timeline">
+                        <span data-label="Measure">Analitika</span>
+                        <span data-label="Experiment">Eksperimenti</span>
+                        <span data-label="Scale">Skaliranje</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section highlight" id="insights">
+            <div class="highlight-grid">
+                <div class="highlight-card" data-animate="tilt">
+                    <h4>NovaVizija Playbook</h4>
+                    <p>Preuzmite naš vodič kroz 18 ključnih principa koji ubrzavaju lansiranje digitalnih proizvoda.</p>
+                    <a href="#contact" class="text-link">Zatraži primerak</a>
+                </div>
+                <div class="highlight-card" data-animate="tilt" data-delay="150">
+                    <h4>Masterclass: Web performanse</h4>
+                    <p>Otkrivamo kako smo jednom e-commerce klijentu smanjili TTFB za 63% i duplirali mobilne konverzije.</p>
+                    <a href="#contact" class="text-link">Rezerviši mesto</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="section work">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Studije slučaja koje pokazuju šta znači „wow“ efekat</h2>
+                <p>Interaktivne animacije, brzina, konzistentnost i poslovni rezultati — sve u jednom isporučenom paketu.</p>
+            </div>
+            <div class="work-grid">
+                <article class="case" data-animate="fade-up">
+                    <div class="case-meta">
+                        <span class="case-tag">Fintech</span>
+                        <span class="case-year">2024</span>
+                    </div>
+                    <h3>FluxPay — digitalni savetnik za investitore</h3>
+                    <p>Kompletnim redesign-om i refaktorisanom platformom ostvarili smo rast NPS-a sa 34 na 71.</p>
+                    <dl class="case-stats">
+                        <div><dt>+63%</dt><dd>aktivnih investitora</dd></div>
+                        <div><dt>2,7x</dt><dd>brže onboardovanje</dd></div>
+                        <div><dt>98/100</dt><dd>PageSpeed ocena</dd></div>
+                    </dl>
+                </article>
+                <article class="case" data-animate="fade-up" data-delay="150">
+                    <div class="case-meta">
+                        <span class="case-tag">E-commerce</span>
+                        <span class="case-year">2023</span>
+                    </div>
+                    <h3>Lumina — marketplace za premium dizajnere</h3>
+                    <p>Headless arhitektura, personalizacija i animirani storytelling povećali su prosečnu vrednost korpe za 42%.</p>
+                    <dl class="case-stats">
+                        <div><dt>+42%</dt><dd>prosečna vrednost porudžbine</dd></div>
+                        <div><dt>+120%</dt><dd>mobilne konverzije</dd></div>
+                        <div><dt>−38%</dt><dd>napuštanje korpe</dd></div>
+                    </dl>
+                </article>
+                <article class="case" data-animate="fade-up" data-delay="300">
+                    <div class="case-meta">
+                        <span class="case-tag">SaaS</span>
+                        <span class="case-year">2024</span>
+                    </div>
+                    <h3>OrbitOps — komandni centar operativnih timova</h3>
+                    <p>Napravili smo modulan sistem sa real-time kolaboracijom koji je smanjio churn i ubrzao usvajanje.</p>
+                    <dl class="case-stats">
+                        <div><dt>−21%</dt><dd>churn u 90 dana</dd></div>
+                        <div><dt>3,1x</dt><dd>brži onboarding</dd></div>
+                        <div><dt>99.98%</dt><dd>uptime SLA</dd></div>
+                    </dl>
+                </article>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section testimonials">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Šta lideri kažu o partnerstvu sa nama</h2>
+                <p>Transparentna saradnja, jasna komunikacija i performanse koje pričaju umesto nas.</p>
+            </div>
+            <div class="testimonials-grid">
+                <figure class="testimonial" data-animate="tilt">
+                    <blockquote>
+                        „NovaVizija je redefinisala kako naši investitori percipiraju brend. Tim koji razume biznis, dizajn i tehnologiju.“
+                    </blockquote>
+                    <figcaption>
+                        <strong>Ivana Stošić</strong>
+                        <span>COO @ FluxPay</span>
+                    </figcaption>
+                </figure>
+                <figure class="testimonial" data-animate="tilt" data-delay="150">
+                    <blockquote>
+                        „Njihovi dizajni dišu, animacije deluju prirodno, a rezultati se vide u svakoj metrici. Pravi partner za rast.“
+                    </blockquote>
+                    <figcaption>
+                        <strong>Marko Krstić</strong>
+                        <span>CEO @ Lumina</span>
+                    </figcaption>
+                </figure>
+                <figure class="testimonial" data-animate="tilt" data-delay="300">
+                    <blockquote>
+                        „Od discovery faze do lansiranja, sve je bilo orkestrirano besprekorno. Komunikacija, proces i finalni proizvod su top.“
+                    </blockquote>
+                    <figcaption>
+                        <strong>Anja Pavlović</strong>
+                        <span>Produkt menadžer @ OrbitOps</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section awards" aria-label="nagrade i priznanja">
+            <div class="awards-grid">
+                <div class="award-card" data-animate="fade-up">
+                    <span class="award-year">2024</span>
+                    <h4>European Design Awards</h4>
+                    <p>Best Interaction Design za OrbitOps komandni centar.</p>
+                </div>
+                <div class="award-card" data-animate="fade-up" data-delay="150">
+                    <span class="award-year">2023</span>
+                    <h4>CSS Design Awards</h4>
+                    <p>Special Kudos & UI of the Day za Lumina marketplace.</p>
+                </div>
+                <div class="award-card" data-animate="fade-up" data-delay="300">
+                    <span class="award-year">2022</span>
+                    <h4>Awwwards</h4>
+                    <p>Site of the Month u kategoriji tehnoloških inovacija.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section faq" id="faq">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Najčešća pitanja novih partnera</h2>
+                <p>Transparentni odgovori koji će vam pomoći da donesete odluku o sledećem koraku.</p>
+            </div>
+            <div class="faq-grid">
+                <details open data-animate="fade-up">
+                    <summary>Koliko traje tipičan projekat?</summary>
+                    <p>Discovery i strategija traju 2–4 nedelje, dizajn i razvoj od 8 do 16 nedelja, u zavisnosti od kompleksnosti i integracija.</p>
+                </details>
+                <details data-animate="fade-up" data-delay="150">
+                    <summary>Da li radite sa internim timovima?</summary>
+                    <p>Da. Uključujemo se u vaše timove kroz zajedničke ritmove, alatke i komuniciramo na Slack/Teams kanalima u realnom vremenu.</p>
+                </details>
+                <details data-animate="fade-up" data-delay="300">
+                    <summary>Kako izgleda ulaganje?</summary>
+                    <p>Radimo u modelu mesečnih sprintova sa transparentnim paketima. Projekti kreću od 8.500€ mesečno i skaliraju se prema ciljevima.</p>
+                </details>
+                <details data-animate="fade-up" data-delay="450">
+                    <summary>Možemo li da vidimo reference?</summary>
+                    <p>U okviru prvog razgovora dobićete pristup privatnom portfoliju sa video walkthrough prezentacijama završnih proizvoda.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="section cta" id="contact">
+            <div class="cta-card" data-animate="fade-up">
+                <div class="cta-copy">
+                    <h2>Spremni ste da pokrenemo novu digitalnu priču?</h2>
+                    <p>Popunite mini-brief i u roku od 24 sata čućete se sa našim lead strategom kako bismo definisali naredne korake.</p>
+                    <ul class="cta-list">
+                        <li>Personalizovan growth plan</li>
+                        <li>Procena tehnologija i tim strukture</li>
+                        <li>Roadmap za prvih 90 dana</li>
+                    </ul>
+                </div>
+                <form class="contact-form" aria-label="Kontakt forma">
+                    <div class="input-group">
+                        <label for="name">Ime i prezime</label>
+                        <input type="text" id="name" name="name" placeholder="Vaše ime" required>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="ime@kompanija.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="company">Kompanija</label>
+                            <input type="text" id="company" name="company" placeholder="Naziv kompanije">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="budget">Budžet</label>
+                            <select id="budget" name="budget">
+                                <option>do 5.000€</option>
+                                <option>5.000€ – 15.000€</option>
+                                <option>15.000€ – 50.000€</option>
+                                <option>50.000€+</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="timeline">Željeni start</label>
+                            <input type="text" id="timeline" name="timeline" placeholder="npr. oktobar 2024">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Opis projekta</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Šta želite da postignete?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Pošalji brief</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div>
+                <div class="logo">Nova<span>Vizija</span></div>
+                <p>Digitalne strategije, dizajn i razvoj koji isporučuju vrhunsko korisničko iskustvo.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#services">Usluge</a>
+                <a href="#work">Studije slučaja</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Behance">Behance</a>
+                <a href="#" aria-label="Dribbble">Dribbble</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> NovaVizija Studio. Sva prava zadržana.</p>
+            <p>hello@novavizija.studio · +381 60 123 45 67</p>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
