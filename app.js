@@ -177,6 +177,75 @@ const initServicesShowcase = () => {
     }
 };
 
+const initAISuite = () => {
+    const root = qs('[data-ai-suite]');
+    if (!root) return;
+    const triggers = qsa('[data-ai-trigger]', root);
+    const panels = qsa('[data-ai-panel]', root);
+    if (!triggers.length || !panels.length) return;
+
+    let currentIndex = Math.max(0, triggers.findIndex(trigger => trigger.classList.contains('is-active')));
+    let autoTimer;
+
+    const activate = id => {
+        triggers.forEach((trigger, index) => {
+            const isActive = trigger.dataset.aiTrigger === id;
+            trigger.classList.toggle('is-active', isActive);
+            trigger.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            trigger.setAttribute('tabindex', isActive ? '0' : '-1');
+            if (isActive) {
+                currentIndex = index;
+            }
+        });
+
+        panels.forEach(panel => {
+            const isActive = panel.dataset.aiPanel === id;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+        });
+    };
+
+    const play = () => {
+        if (prefersReducedMotion.matches || triggers.length < 2) return;
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => {
+            const nextIndex = (currentIndex + 1) % triggers.length;
+            const next = triggers[nextIndex];
+            if (next) {
+                activate(next.dataset.aiTrigger);
+            }
+        }, 5200);
+    };
+
+    const pause = () => clearInterval(autoTimer);
+
+    triggers.forEach(trigger => {
+        const isInitiallyActive = trigger.classList.contains('is-active');
+        trigger.setAttribute('aria-selected', isInitiallyActive ? 'true' : 'false');
+        trigger.setAttribute('tabindex', isInitiallyActive ? '0' : '-1');
+        trigger.addEventListener('click', () => {
+            activate(trigger.dataset.aiTrigger);
+            play();
+        });
+        trigger.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                activate(trigger.dataset.aiTrigger);
+                play();
+            }
+        });
+    });
+
+    root.addEventListener('pointerenter', pause);
+    root.addEventListener('pointerleave', play);
+
+    const initial = triggers[currentIndex] || triggers[0];
+    if (initial) {
+        activate(initial.dataset.aiTrigger);
+    }
+    play();
+};
+
 const initProjectsShowcase = () => {
     const root = qs('[data-projects]');
     if (!root) return;
@@ -459,6 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initRevealAnimations();
     initServicesShowcase();
+    initAISuite();
     initProjectsShowcase();
     initExperienceShowcase();
     initProcessNavigator();
