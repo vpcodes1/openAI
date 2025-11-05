@@ -177,32 +177,55 @@ const initServicesShowcase = () => {
     }
 };
 
-const initAISuite = () => {
-    const root = qs('[data-ai-suite]');
+const initAiShowcase = () => {
+    const root = qs('[data-ai-showcase]');
     if (!root) return;
-    const triggers = qsa('[data-ai-trigger]', root);
-    const panels = qsa('[data-ai-panel]', root);
-    if (!triggers.length || !panels.length) return;
+    const triggers = qsa('[data-ai-idea]', root);
+    const title = qs('[data-ai-title]', root);
+    const description = qs('[data-ai-description]', root);
+    const points = qsa('[data-ai-point]', root);
+    const metric = qs('[data-ai-metric]', root);
+    const metricLabel = qs('[data-ai-metric-label]', root);
+    if (!triggers.length || !title || !description || !points.length || !metric || !metricLabel) return;
 
     let currentIndex = Math.max(0, triggers.findIndex(trigger => trigger.classList.contains('is-active')));
     let autoTimer;
 
-    const activate = id => {
-        triggers.forEach((trigger, index) => {
-            const isActive = trigger.dataset.aiTrigger === id;
-            trigger.classList.toggle('is-active', isActive);
-            trigger.setAttribute('aria-selected', isActive ? 'true' : 'false');
-            trigger.setAttribute('tabindex', isActive ? '0' : '-1');
+    const updateHighlight = trigger => {
+        const { title: ideaTitle, description: ideaDescription, pointOne, pointTwo, pointThree, metric: ideaMetric, metricLabel: ideaMetricLabel } = trigger.dataset;
+        title.textContent = ideaTitle || '';
+        description.textContent = ideaDescription || '';
+        const pointValues = [pointOne, pointTwo, pointThree];
+        points.forEach((pointEl, index) => {
+            const copy = pointValues[index];
+            if (!copy) {
+                pointEl.textContent = '';
+                pointEl.hidden = true;
+            } else {
+                pointEl.textContent = copy;
+                pointEl.hidden = false;
+            }
+        });
+        if (ideaMetric) {
+            metric.textContent = ideaMetric;
+        }
+        if (ideaMetricLabel) {
+            metricLabel.textContent = ideaMetricLabel;
+        }
+    };
+
+    const activate = trigger => {
+        if (!trigger) return;
+        triggers.forEach((btn, index) => {
+            const isActive = btn === trigger;
+            btn.classList.toggle('is-active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            btn.setAttribute('tabindex', isActive ? '0' : '-1');
             if (isActive) {
                 currentIndex = index;
             }
         });
-
-        panels.forEach(panel => {
-            const isActive = panel.dataset.aiPanel === id;
-            panel.classList.toggle('is-active', isActive);
-            panel.hidden = !isActive;
-        });
+        updateHighlight(trigger);
     };
 
     const play = () => {
@@ -210,11 +233,9 @@ const initAISuite = () => {
         clearInterval(autoTimer);
         autoTimer = setInterval(() => {
             const nextIndex = (currentIndex + 1) % triggers.length;
-            const next = triggers[nextIndex];
-            if (next) {
-                activate(next.dataset.aiTrigger);
-            }
-        }, 5200);
+            const nextTrigger = triggers[nextIndex];
+            activate(nextTrigger);
+        }, 6000);
     };
 
     const pause = () => clearInterval(autoTimer);
@@ -224,13 +245,13 @@ const initAISuite = () => {
         trigger.setAttribute('aria-selected', isInitiallyActive ? 'true' : 'false');
         trigger.setAttribute('tabindex', isInitiallyActive ? '0' : '-1');
         trigger.addEventListener('click', () => {
-            activate(trigger.dataset.aiTrigger);
+            activate(trigger);
             play();
         });
         trigger.addEventListener('keydown', event => {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
-                activate(trigger.dataset.aiTrigger);
+                activate(trigger);
                 play();
             }
         });
@@ -240,89 +261,8 @@ const initAISuite = () => {
     root.addEventListener('pointerleave', play);
 
     const initial = triggers[currentIndex] || triggers[0];
-    if (initial) {
-        activate(initial.dataset.aiTrigger);
-    }
+    activate(initial);
     play();
-};
-
-const initAIPlaybook = () => {
-    const root = qs('[data-ai-playbook]');
-    if (!root) return;
-    const triggers = qsa('[data-ai-plan-trigger]', root);
-    const panels = qsa('[data-ai-plan-panel]', root);
-    if (!triggers.length || !panels.length) return;
-
-    const activate = id => {
-        triggers.forEach(trigger => {
-            const isActive = trigger.dataset.aiPlanTrigger === id;
-            trigger.classList.toggle('is-active', isActive);
-            trigger.setAttribute('aria-selected', isActive ? 'true' : 'false');
-            trigger.setAttribute('tabindex', isActive ? '0' : '-1');
-        });
-
-        panels.forEach(panel => {
-            const isActive = panel.dataset.aiPlanPanel === id;
-            panel.classList.toggle('is-active', isActive);
-            panel.hidden = !isActive;
-        });
-    };
-
-    triggers.forEach(trigger => {
-        const isInitiallyActive = trigger.classList.contains('is-active');
-        trigger.setAttribute('aria-selected', isInitiallyActive ? 'true' : 'false');
-        trigger.setAttribute('tabindex', isInitiallyActive ? '0' : '-1');
-        trigger.addEventListener('click', () => activate(trigger.dataset.aiPlanTrigger));
-        trigger.addEventListener('keydown', event => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                activate(trigger.dataset.aiPlanTrigger);
-            }
-        });
-    });
-
-    const initial = triggers.find(trigger => trigger.classList.contains('is-active')) || triggers[0];
-    if (initial) {
-        activate(initial.dataset.aiPlanTrigger);
-    }
-};
-
-const initAIRoiEstimator = () => {
-    const root = qs('[data-ai-roi]');
-    if (!root) return;
-    const leadsInput = qs('[data-ai-roi-leads]', root);
-    const rateInput = qs('[data-ai-roi-rate]', root);
-    const leadsValue = qs('[data-ai-roi-leads-value]', root);
-    const rateValue = qs('[data-ai-roi-rate-value]', root);
-    const extraLeads = qs('[data-ai-roi-extra-leads]', root);
-    const extraMeetings = qs('[data-ai-roi-extra-meetings]', root);
-    const hoursSaved = qs('[data-ai-roi-hours]', root);
-    if (!leadsInput || !rateInput || !leadsValue || !rateValue || !extraLeads || !extraMeetings || !hoursSaved) return;
-
-    const formatNumber = value => {
-        const numeric = Number.isFinite(value) ? Math.round(value) : 0;
-        return numeric.toLocaleString('sr-RS');
-    };
-
-    const update = () => {
-        const leads = parseInt(leadsInput.value || '0', 10);
-        const rate = parseFloat(rateInput.value || '0');
-        leadsValue.textContent = leads.toLocaleString('sr-RS');
-        rateValue.textContent = `${rate.toLocaleString('sr-RS')}%`;
-
-        const improvedLeads = leads * 1.18;
-        const extraLeadsValue = Math.max(0, improvedLeads - leads);
-        const meetingsValue = Math.max(0, improvedLeads * (rate / 100));
-        const hoursValue = Math.max(6, Math.round(extraLeadsValue * 0.17));
-
-        extraLeads.textContent = formatNumber(extraLeadsValue);
-        extraMeetings.textContent = formatNumber(meetingsValue);
-        hoursSaved.textContent = `${hoursValue}h`;
-    };
-
-    leadsInput.addEventListener('input', update);
-    rateInput.addEventListener('input', update);
-    update();
 };
 
 const initProjectsShowcase = () => {
@@ -607,9 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initRevealAnimations();
     initServicesShowcase();
-    initAISuite();
-    initAIPlaybook();
-    initAIRoiEstimator();
+    initAiShowcase();
     initProjectsShowcase();
     initExperienceShowcase();
     initProcessNavigator();
