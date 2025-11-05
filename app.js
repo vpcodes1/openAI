@@ -136,118 +136,45 @@ const initProgressBars = () => {
     });
 };
 
-const initServiceLab = () => {
-    const lab = qs('[data-service-lab]');
-    if (!lab) return;
-
-    const nav = qs('[data-service-nav]', lab);
-    const navItems = qsa('.service-nav-item', nav);
-    const indicator = qs('[data-service-indicator]', nav);
-    const panels = qsa('[data-service-panel]', lab);
-    const meter = qs('[data-service-meter]');
-    if (!navItems.length || !panels.length) return;
-
-    let activeButton = navItems[0];
-    let autoCycle;
-
-    const stopCycle = () => {
-        clearInterval(autoCycle);
-    };
-
-    const cycle = () => {
-        if (!activeButton) return;
-        const currentIndex = navItems.indexOf(activeButton);
-        const nextIndex = (currentIndex + 1) % navItems.length;
-        activate(navItems[nextIndex]);
-    };
-
-    const startCycle = () => {
-        if (prefersReducedMotion.matches) return;
-        clearInterval(autoCycle);
-        autoCycle = setInterval(cycle, 7000);
-    };
-
-    const activate = target => {
-        const button = typeof target === 'string'
-            ? navItems.find(item => item.dataset.serviceTarget === target)
-            : target;
-        if (!button) return;
-        const panelId = button.dataset.serviceTarget;
-        navItems.forEach(item => item.classList.toggle('is-active', item === button));
-        panels.forEach(panel => panel.classList.toggle('is-active', panel.dataset.servicePanel === panelId));
-        const offset = button.offsetTop - nav.offsetTop;
-        if (indicator) {
-            indicator.style.height = `${button.offsetHeight}px`;
-            indicator.style.setProperty('--indicator-offset', `${offset}px`);
-        }
-        if (meter) {
-            const value = parseInt(button.dataset.meter || '80', 10);
-            meter.style.width = `${value}%`;
-        }
-        activeButton = button;
-        if (prefersReducedMotion.matches) {
-            stopCycle();
-        }
-    };
-
-    const handleResize = () => {
-        if (!activeButton) return;
-        const offset = activeButton.offsetTop - nav.offsetTop;
-        if (indicator) {
-            indicator.style.height = `${activeButton.offsetHeight}px`;
-            indicator.style.setProperty('--indicator-offset', `${offset}px`);
-        }
-    };
-
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            activate(item);
-            stopCycle();
-        });
-    });
-
-    activate(navItems[0]);
-    window.addEventListener('resize', handleResize);
-    startCycle();
-    nav.addEventListener('pointerenter', stopCycle);
-    nav.addEventListener('pointerleave', startCycle);
-};
-
-const initExperienceSlider = () => {
-    const viewport = qs('[data-experience-viewport]');
+const initExperienceShowcase = () => {
+    const viewport = qs('[data-experience]');
     if (!viewport) return;
-    const track = qs('.experience-track', viewport);
-    const dots = qsa('.experience-dot');
-    if (!track || !dots.length) return;
+    const frames = qsa('[data-experience-frame]', viewport);
+    const controlsRoot = qs('[data-experience-controls]');
+    const controlButtons = controlsRoot ? qsa('[data-experience-trigger]', controlsRoot) : [];
+    if (!frames.length) return;
 
     let current = 0;
     let autoTimer;
 
-    const goTo = index => {
-        current = (index + dots.length) % dots.length;
-        track.style.transform = `translateX(-${current * 100}%)`;
-        dots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === current));
+    const activate = index => {
+        current = (index + frames.length) % frames.length;
+        frames.forEach((frame, frameIndex) => frame.classList.toggle('is-active', frameIndex === current));
+        controlButtons.forEach((button, buttonIndex) => button.classList.toggle('is-active', buttonIndex === current));
     };
 
     const play = () => {
-        if (prefersReducedMotion.matches) return;
+        if (prefersReducedMotion.matches || frames.length < 2) return;
         clearInterval(autoTimer);
         autoTimer = setInterval(() => {
-            goTo(current + 1);
-        }, 4200);
+            activate(current + 1);
+        }, 4800);
     };
 
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            goTo(index);
+    const pause = () => clearInterval(autoTimer);
+
+    controlButtons.forEach(button => {
+        const target = parseInt(button.dataset.experienceTrigger || '0', 10);
+        button.addEventListener('click', () => {
+            activate(target);
             play();
         });
     });
 
-    viewport.addEventListener('pointerenter', () => clearInterval(autoTimer));
+    viewport.addEventListener('pointerenter', pause);
     viewport.addEventListener('pointerleave', play);
 
-    goTo(0);
+    activate(0);
     play();
 };
 
@@ -458,7 +385,7 @@ const initCursor = () => {
         }
     });
 
-    const interactiveSelectors = 'a, button, .btn, [data-hover-tilt], .service-nav-item, .process-step, .case-control, .testimonial-control, .experience-dot';
+    const interactiveSelectors = 'a, button, .btn, [data-hover-tilt], .service-panel, .process-step, .case-control, .testimonial-control, .experience-dot';
     const interactives = qsa(interactiveSelectors);
 
     interactives.forEach(el => {
@@ -497,8 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setYear();
     initScrollProgress();
     initRevealAnimations();
-    initServiceLab();
-    initExperienceSlider();
+    initExperienceShowcase();
     initProcessNavigator();
     initCaseCarousel();
     initTestimonialCarousel();
