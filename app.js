@@ -136,6 +136,47 @@ const initProgressBars = () => {
     });
 };
 
+const initServicesShowcase = () => {
+    const root = qs('[data-services]');
+    if (!root) return;
+    const triggers = qsa('[data-service-trigger]', root);
+    const panels = qsa('[data-service-panel]', root);
+    if (!triggers.length || !panels.length) return;
+
+    const activate = id => {
+        triggers.forEach(trigger => {
+            const isActive = trigger.dataset.serviceTrigger === id;
+            trigger.classList.toggle('is-active', isActive);
+            trigger.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            trigger.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+
+        panels.forEach(panel => {
+            const isActive = panel.dataset.servicePanel === id;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+        });
+    };
+
+    triggers.forEach(trigger => {
+        const isInitiallyActive = trigger.classList.contains('is-active');
+        trigger.setAttribute('aria-selected', isInitiallyActive ? 'true' : 'false');
+        trigger.setAttribute('tabindex', isInitiallyActive ? '0' : '-1');
+        trigger.addEventListener('click', () => activate(trigger.dataset.serviceTrigger));
+        trigger.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                activate(trigger.dataset.serviceTrigger);
+            }
+        });
+    });
+
+    const initial = triggers.find(trigger => trigger.classList.contains('is-active')) || triggers[0];
+    if (initial) {
+        activate(initial.dataset.serviceTrigger);
+    }
+};
+
 const initExperienceShowcase = () => {
     const viewport = qs('[data-experience]');
     if (!viewport) return;
@@ -219,54 +260,6 @@ const initProcessNavigator = () => {
     sync(steps[0]);
     handleResize();
     window.addEventListener('resize', handleResize);
-};
-
-const initCaseCarousel = () => {
-    const carousel = qs('[data-case-carousel]');
-    if (!carousel) return;
-    const track = qs('.case-track', carousel);
-    const cases = qsa('[data-case]', track);
-    const prev = qs('.case-control.prev', carousel);
-    const next = qs('.case-control.next', carousel);
-    const progress = qs('[data-case-progress]', carousel);
-    if (!track || !cases.length) return;
-
-    let index = 0;
-    let autoplay;
-
-    const update = () => {
-        const active = cases[index];
-        const offset = active.offsetLeft;
-        track.style.transform = `translateX(-${offset}px)`;
-        if (progress) {
-            const value = ((index + 1) / cases.length) * 100;
-            progress.style.width = `${value}%`;
-        }
-    };
-
-    const goTo = newIndex => {
-        index = (newIndex + cases.length) % cases.length;
-        update();
-    };
-
-    const play = () => {
-        if (prefersReducedMotion.matches) return;
-        clearInterval(autoplay);
-        autoplay = setInterval(() => goTo(index + 1), 5000);
-    };
-
-    const pause = () => clearInterval(autoplay);
-
-    if (prev) prev.addEventListener('click', () => { goTo(index - 1); play(); });
-    if (next) next.addEventListener('click', () => { goTo(index + 1); play(); });
-
-    carousel.addEventListener('pointerenter', pause);
-    carousel.addEventListener('pointerleave', play);
-
-    window.addEventListener('resize', update);
-
-    goTo(0);
-    play();
 };
 
 const initTestimonialCarousel = () => {
@@ -385,7 +378,7 @@ const initCursor = () => {
         }
     });
 
-    const interactiveSelectors = 'a, button, .btn, [data-hover-tilt], .service-panel, .process-step, .case-control, .testimonial-control, .experience-dot';
+    const interactiveSelectors = 'a, button, .btn, [data-hover-tilt], .service-card, .process-step, .testimonial-control, .experience-dot';
     const interactives = qsa(interactiveSelectors);
 
     interactives.forEach(el => {
@@ -424,9 +417,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setYear();
     initScrollProgress();
     initRevealAnimations();
+    initServicesShowcase();
     initExperienceShowcase();
     initProcessNavigator();
-    initCaseCarousel();
     initTestimonialCarousel();
     if (!prefersReducedMotion.matches) {
         initCounters();
