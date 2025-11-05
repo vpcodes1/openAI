@@ -16,7 +16,13 @@
     <div class="cursor" data-cursor></div>
     <div class="page-glow"></div>
     <header class="top-bar" data-animate="fade-down">
-        <div class="logo">VP<span>Codes</span></div>
+        <a class="brand" href="#hero" aria-label="VP Codes Studio">
+            <img src="assets/vp-codes-logo.svg" alt="VP Codes Studio logo">
+            <div class="brand-copy">
+                <strong>VP Codes</strong>
+                <span>Studio</span>
+            </div>
+        </a>
         <nav class="main-nav">
             <a href="#services">Usluge</a>
             <a href="#ai">AI ideje</a>
@@ -545,6 +551,138 @@
                     </article>
                 </div>
             </div>
+            <div class="ai-playbook" data-ai-playbook data-animate="fade-up" data-delay="200">
+                <div class="ai-playbook-header">
+                    <h3>AI plan za tvoju industriju</h3>
+                    <p>Izaberi scenario i videćeš kakve AI automatizacije ubacujemo u prva tri sprinta.</p>
+                </div>
+                <div class="ai-playbook-body">
+                    <div class="ai-playbook-tabs" role="tablist">
+                        <button class="ai-playbook-tab is-active" type="button" role="tab" data-ai-plan-trigger="ecommerce" aria-controls="ai-plan-ecommerce">Online prodaja</button>
+                        <button class="ai-playbook-tab" type="button" role="tab" data-ai-plan-trigger="saas" aria-controls="ai-plan-saas">SaaS tim</button>
+                        <button class="ai-playbook-tab" type="button" role="tab" data-ai-plan-trigger="services" aria-controls="ai-plan-services">Uslužni biznis</button>
+                    </div>
+                    <div class="ai-playbook-panels">
+                        <article class="ai-playbook-panel is-active" data-ai-plan-panel="ecommerce" id="ai-plan-ecommerce" role="tabpanel">
+                            <header>
+                                <span class="pill success">Sprint 1</span>
+                                <h4>Brzi AI prodavac</h4>
+                            </header>
+                            <ul>
+                                <li>Prikuplja pitanja o proizvodima i nudi personalizovane preporuke.</li>
+                                <li>Automatski predlaže bundle ponude za veći prosečan račun.</li>
+                                <li>Pokreće retargeting email ako kupovina stane u korpi.</li>
+                            </ul>
+                            <footer>
+                                <strong>+18%</strong>
+                                <span>više završenih narudžbina za 30 dana.</span>
+                            </footer>
+                        </article>
+                        <article class="ai-playbook-panel" data-ai-plan-panel="saas" id="ai-plan-saas" role="tabpanel" hidden>
+                            <header>
+                                <span class="pill success">Sprint 1</span>
+                                <h4>AI onboarding trener</h4>
+                            </header>
+                            <ul>
+                                <li>Pomaže novim korisnicima da aktiviraju ključne funkcije korak-po-korak.</li>
+                                <li>Predlaže sledeći korak na osnovu ponašanja u aplikaciji.</li>
+                                <li>Šalje sažetke progresu prodajnom timu u Slack/Email.</li>
+                            </ul>
+                            <footer>
+                                <strong>−25%</strong>
+                                <span>manje odustajanja u probnom periodu.</span>
+                            </footer>
+                        </article>
+                        <article class="ai-playbook-panel" data-ai-plan-panel="services" id="ai-plan-services" role="tabpanel" hidden>
+                            <header>
+                                <span class="pill success">Sprint 1</span>
+                                <h4>AI konsultant u prijemu</h4>
+                            </header>
+                            <ul>
+                                <li>Prikuplja osnovne podatke i pravi sažetak upita za tvoju ekipu.</li>
+                                <li>Predstavlja tri paketa saradnje i prikazuje relevantne studije.</li>
+                                <li>Rezerviše termin direktno u kalendaru tima.</li>
+                            </ul>
+                            <footer>
+                                <strong>+2.1x</strong>
+                                <span>više kvalifikovanih poziva nedeljno.</span>
+                            </footer>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-expansion" data-animate="fade-up" data-delay="280">
+                <div class="ai-blueprints">
+                    <article class="ai-blueprint">
+                        <h4>AI audit u 72h</h4>
+                        <p>Analiziram postojeći sajt, CRM i sadržaj i dobijate jasan spisak gde AI najbrže donosi vrednost.</p>
+                        <ul>
+                            <li>Mapa svih korisničkih dodira</li>
+                            <li>Prioritetni AI use-case plan</li>
+                            <li>Procena troškova i vremena</li>
+                        </ul>
+                    </article>
+                    <article class="ai-blueprint">
+                        <h4>AI asistenti po meri</h4>
+                        <p>Kreiram asistente koji odgovaraju na pitanja, vode kroz ponudu i predlažu sledeći korak.</p>
+                        <ul>
+                            <li>Ton komunikacije prilagođen brendu</li>
+                            <li>Integracija sa bazama znanja</li>
+                            <li>Priručnik za tim kako da ih koristi</li>
+                        </ul>
+                    </article>
+                    <article class="ai-blueprint">
+                        <h4>AI za marketing ritam</h4>
+                        <p>Postavljam kalendar objava, email sekvence i oglase koje AI priprema na osnovu vaših ciljeva.</p>
+                        <ul>
+                            <li>Gotovi templati za kampanje</li>
+                            <li>Automatsko izvlačenje rezultata</li>
+                            <li>Predlozi sledećih testova</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="ai-roi" data-ai-roi>
+                    <div class="ai-roi-header">
+                        <h3>Koliko AI može da pomogne?</h3>
+                        <p>Podesi broj poseta i stopu zakazivanja da vidiš koliki dodatni efekat možeš da očekuješ.</p>
+                    </div>
+                    <div class="ai-roi-controls">
+                        <label>
+                            Mesečnih posetilaca
+                            <span data-ai-roi-leads-value>1.500</span>
+                            <input type="range" min="300" max="6000" step="100" value="1500" data-ai-roi-leads>
+                        </label>
+                        <label>
+                            Stopa zakazivanja poziva
+                            <span data-ai-roi-rate-value>6%</span>
+                            <input type="range" min="2" max="20" step="1" value="6" data-ai-roi-rate>
+                        </label>
+                    </div>
+                    <div class="ai-roi-results">
+                        <div>
+                            <strong data-ai-roi-extra-leads>270</strong>
+                            <span>dodatnih poseta obrađenih AI-jem</span>
+                        </div>
+                        <div>
+                            <strong data-ai-roi-extra-meetings>110</strong>
+                            <span>AI kvalifikovanih razgovora mesečno</span>
+                        </div>
+                        <div>
+                            <strong data-ai-roi-hours>45h</strong>
+                            <span>sačuvanog ručnog odgovaranja</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-checklist">
+                    <h3>Šta dobijaš kada uvedemo AI</h3>
+                    <ul>
+                        <li><span>24/7 odgovore koji liče na razgovor sa tobom.</span></li>
+                        <li><span>Automatizovane follow-up poruke bez dodatnog rada.</span></li>
+                        <li><span>Jasan dashboard koji meri uticaj svakog AI koraka.</span></li>
+                        <li><span>Trening za tim kako da koristi nove asistente.</span></li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section class="section stack" id="insights">
@@ -961,8 +1099,14 @@
 
     <footer class="footer">
         <div class="footer-top">
-            <div>
-                <div class="logo">VP<span>Codes</span></div>
+            <div class="footer-brand">
+                <a class="brand brand--footer" href="#hero" aria-label="VP Codes Studio">
+                    <img src="assets/vp-codes-logo.svg" alt="VP Codes Studio logo">
+                    <div class="brand-copy">
+                        <strong>VP Codes</strong>
+                        <span>Studio</span>
+                    </div>
+                </a>
                 <p>Digitalne strategije, dizajn i razvoj koji isporučuju vrhunsko korisničko iskustvo.</p>
             </div>
             <div class="footer-links">

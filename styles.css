@@ -13,6 +13,7 @@
     --surface-strong: rgba(25, 22, 52, 0.85);
     --border: rgba(123, 92, 255, 0.25);
     --shadow-lg: 0 32px 70px rgba(5, 4, 20, 0.55);
+    --shadow-md: 0 24px 50px rgba(5, 4, 20, 0.45);
     --shadow-sm: 0 18px 32px rgba(8, 6, 24, 0.25);
     --radius-lg: 32px;
     --radius-md: 20px;
@@ -109,13 +110,43 @@ section {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.logo {
-    font-weight: 800;
-    font-size: 1.35rem;
-    letter-spacing: 0.02em;
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    color: inherit;
 }
 
-.logo span {
+.brand img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(123, 92, 255, 0.35));
+    transition: transform 260ms var(--transition);
+}
+
+.brand:hover img,
+.brand:focus-visible img {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.brand-copy {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.brand-copy strong {
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.brand-copy span {
+    font-size: 0.75rem;
+    font-weight: 600;
     color: var(--accent);
 }
 
@@ -868,6 +899,321 @@ section {
     letter-spacing: normal;
 }
 
+.ai-playbook {
+    margin-top: clamp(2rem, 6vw, 3rem);
+    display: grid;
+    gap: 1.8rem;
+    padding: clamp(1.8rem, 3vw, 2.6rem);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(150deg, rgba(10, 8, 28, 0.92), rgba(18, 12, 40, 0.85));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-lg);
+}
+
+.ai-playbook-header {
+    text-align: center;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.ai-playbook-header h3 {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+}
+
+.ai-playbook-header p {
+    color: rgba(245, 246, 255, 0.75);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.ai-playbook-body {
+    display: grid;
+    gap: clamp(1.4rem, 3vw, 1.8rem);
+}
+
+.ai-playbook-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.ai-playbook-tab {
+    padding: 0.7rem 1.3rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.3s var(--transition);
+}
+
+.ai-playbook-tab:hover,
+.ai-playbook-tab:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(123, 92, 255, 0.75);
+}
+
+.ai-playbook-tab.is-active {
+    background: linear-gradient(135deg, rgba(123, 92, 255, 0.3), rgba(82, 229, 214, 0.2));
+    border-color: rgba(123, 92, 255, 0.85);
+    box-shadow: 0 12px 32px rgba(8, 6, 24, 0.45);
+}
+
+.ai-playbook-panels {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.ai-playbook-panel {
+    display: grid;
+    gap: 1.1rem;
+    padding: clamp(1.5rem, 2.6vw, 2rem);
+    border-radius: var(--radius-lg);
+    background: rgba(12, 9, 30, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ai-playbook-panel[hidden] {
+    display: none !important;
+}
+
+.ai-playbook-panel header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.ai-playbook-panel h4 {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+}
+
+.ai-playbook-panel ul {
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+    color: rgba(245, 246, 255, 0.82);
+}
+
+.ai-playbook-panel ul li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    font-size: 0.96rem;
+    line-height: 1.55;
+}
+
+.ai-playbook-panel ul li::before {
+    content: '';
+    width: 0.35rem;
+    height: 0.35rem;
+    margin-top: 0.55rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(123, 92, 255, 0.85), rgba(255, 255, 255, 0.9));
+    flex-shrink: 0;
+}
+
+.ai-playbook-panel footer {
+    display: grid;
+    gap: 0.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 0.8rem;
+}
+
+.ai-playbook-panel footer strong {
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+.ai-playbook-panel footer span {
+    color: rgba(245, 246, 255, 0.72);
+    font-size: 0.9rem;
+}
+
+.ai-expansion {
+    margin-top: clamp(2.2rem, 5vw, 3.2rem);
+    display: grid;
+    gap: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+@media (min-width: 1200px) {
+    .ai-expansion {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr) minmax(0, 1fr);
+        align-items: stretch;
+    }
+}
+
+.ai-blueprints {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 720px) {
+    .ai-blueprints {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+.ai-blueprint {
+    padding: clamp(1.4rem, 2.4vw, 1.8rem);
+    border-radius: var(--radius-md);
+    background: rgba(12, 10, 32, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: grid;
+    gap: 0.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.ai-blueprint h4 {
+    font-size: 1.2rem;
+}
+
+.ai-blueprint p {
+    color: rgba(245, 246, 255, 0.78);
+    font-size: 0.95rem;
+}
+
+.ai-blueprint ul {
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+    color: rgba(245, 246, 255, 0.72);
+    font-size: 0.9rem;
+}
+
+.ai-blueprint ul li {
+    display: flex;
+    gap: 0.45rem;
+    align-items: flex-start;
+}
+
+.ai-blueprint ul li::before {
+    content: '';
+    width: 0.35rem;
+    height: 0.35rem;
+    margin-top: 0.45rem;
+    border-radius: 50%;
+    background: rgba(123, 92, 255, 0.85);
+    flex-shrink: 0;
+}
+
+.ai-roi {
+    padding: clamp(1.6rem, 2.6vw, 2.2rem);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(160deg, rgba(20, 14, 48, 0.9), rgba(29, 19, 64, 0.85));
+    border: 1px solid rgba(123, 92, 255, 0.25);
+    display: grid;
+    gap: 1.4rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.ai-roi-header h3 {
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+
+.ai-roi-header p {
+    color: rgba(245, 246, 255, 0.75);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.ai-roi-controls {
+    display: grid;
+    gap: 1rem;
+}
+
+.ai-roi-controls label {
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    color: rgba(245, 246, 255, 0.75);
+}
+
+.ai-roi-controls span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--fg);
+}
+
+.ai-roi-controls input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+}
+
+.ai-roi-results {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 560px) {
+    .ai-roi-results {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.ai-roi-results div {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    display: grid;
+    gap: 0.35rem;
+    text-align: center;
+}
+
+.ai-roi-results strong {
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+.ai-roi-results span {
+    font-size: 0.85rem;
+    color: rgba(245, 246, 255, 0.7);
+}
+
+.ai-checklist {
+    padding: clamp(1.5rem, 2.6vw, 2rem);
+    border-radius: var(--radius-lg);
+    background: rgba(10, 8, 28, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: grid;
+    gap: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.ai-checklist h3 {
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+}
+
+.ai-checklist ul {
+    list-style: none;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.ai-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.8rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.ai-checklist li::before {
+    content: '✔';
+    font-size: 0.8rem;
+    color: var(--success);
+}
+
+.ai-checklist li span {
+    color: rgba(245, 246, 255, 0.8);
+    font-size: 0.9rem;
+}
+
 
 /* Stack */
 
@@ -1477,6 +1823,21 @@ textarea {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.brand--footer img {
+    width: 52px;
+    height: 52px;
+}
+
+.brand--footer .brand-copy strong {
+    font-size: 1.2rem;
 }
 
 .footer-top p {

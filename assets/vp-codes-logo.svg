@@ -1,0 +1,11 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+    <title id="title">VP Codes Studio logo</title>
+    <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#9d7bff" />
+            <stop offset="100%" stop-color="#6b4bff" />
+        </linearGradient>
+    </defs>
+    <path d="M12 14h26l22 57.8L82 14h26L62 106 12 14z" fill="url(#grad)" />
+    <path d="M70 72.4L84 36H72l-10 24.6L52 36H40l24 56.2L70 72.4z" fill="#2a1b57" opacity="0.75" />
+</svg>
