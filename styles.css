@@ -579,7 +579,7 @@ section {
 .service-detail {
     display: grid;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .service-panel {
@@ -614,10 +614,112 @@ section {
     border: 1px solid rgba(123, 92, 255, 0.4);
 }
 
+.panel-layout {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: stretch;
+}
+
+.panel-content {
+    display: grid;
+    gap: 1.5rem;
+    align-content: start;
+}
+
+.spotlight-window {
+    position: relative;
+    display: grid;
+    gap: 1.4rem;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    background: linear-gradient(160deg, rgba(123, 92, 255, 0.32), rgba(82, 229, 214, 0.1));
+    border: 1px solid rgba(123, 92, 255, 0.35);
+    box-shadow: 0 24px 64px rgba(8, 6, 24, 0.45);
+    overflow: hidden;
+    transition: box-shadow 0.5s var(--transition);
+}
+
+.spotlight-window::before {
+    content: "";
+    position: absolute;
+    inset: -40% -40% auto auto;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.28), transparent 65%);
+    filter: blur(0.5px);
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+.spotlight-header {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+    z-index: 1;
+}
+
+.spotlight-body {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    z-index: 1;
+}
+
+.spotlight-body h4 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+}
+
+.spotlight-body p {
+    color: rgba(245, 246, 255, 0.75);
+}
+
+.spotlight-list {
+    list-style: none;
+    display: grid;
+    gap: 0.65rem;
+    padding: 0;
+    color: rgba(245, 246, 255, 0.78);
+    font-size: 0.95rem;
+}
+
+.spotlight-footer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    z-index: 1;
+}
+
+.spotlight-window:hover {
+    box-shadow: 0 28px 90px rgba(8, 6, 24, 0.6);
+}
+
+.spotlight-metric {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 140px;
+}
+
+.spotlight-metric strong {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.spotlight-metric span {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(245, 246, 255, 0.7);
+}
+
 .panel-grid {
     display: grid;
     gap: 1.2rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .panel-card {
@@ -883,16 +985,17 @@ section {
     display: none;
 }
 
+
 .process-panels {
     position: relative;
-    min-height: 360px;
+    min-height: 420px;
+    overflow: visible;
 }
 
 .process-panel {
     position: absolute;
     inset: 0;
-    display: grid;
-    gap: 1.4rem;
+    display: block;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -903,6 +1006,19 @@ section {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+.process-layout {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: stretch;
+}
+
+.process-content {
+    display: grid;
+    gap: 1.4rem;
+    align-content: start;
 }
 
 .process-panel h3 {
@@ -1383,6 +1499,40 @@ textarea {
     transition-delay: calc(var(--delay, 0ms));
 }
 
+html:not(.has-js) [data-animate] {
+    opacity: 1;
+    transform: none;
+}
+
+html:not(.has-js) .service-panel,
+html:not(.has-js) .process-panel {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    position: relative;
+}
+
+html:not(.has-js) .process-panels {
+    min-height: auto;
+}
+
+html:not(.has-js) .service-nav-indicator,
+html:not(.has-js) .process-progress,
+html:not(.has-js) .experience-controls,
+html:not(.has-js) .case-control,
+html:not(.has-js) .testimonial-control {
+    display: none !important;
+}
+
+html:not(.has-js) .experience-track {
+    width: 100%;
+    display: grid;
+}
+
+html:not(.has-js) .experience-frame {
+    width: 100%;
+}
+
 /* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1428,6 +1578,15 @@ textarea {
 
     .service-lab {
         padding: 2rem;
+    }
+
+    .panel-layout,
+    .process-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .spotlight-window {
+        padding: 1.6rem;
     }
 
     .panel-grid,

@@ -1,3 +1,5 @@
+document.documentElement.classList.add('has-js');
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const isPointerFine = window.matchMedia('(pointer: fine)');
 
@@ -146,6 +148,24 @@ const initServiceLab = () => {
     if (!navItems.length || !panels.length) return;
 
     let activeButton = navItems[0];
+    let autoCycle;
+
+    const stopCycle = () => {
+        clearInterval(autoCycle);
+    };
+
+    const cycle = () => {
+        if (!activeButton) return;
+        const currentIndex = navItems.indexOf(activeButton);
+        const nextIndex = (currentIndex + 1) % navItems.length;
+        activate(navItems[nextIndex]);
+    };
+
+    const startCycle = () => {
+        if (prefersReducedMotion.matches) return;
+        clearInterval(autoCycle);
+        autoCycle = setInterval(cycle, 7000);
+    };
 
     const activate = target => {
         const button = typeof target === 'string'
@@ -165,6 +185,9 @@ const initServiceLab = () => {
             meter.style.width = `${value}%`;
         }
         activeButton = button;
+        if (prefersReducedMotion.matches) {
+            stopCycle();
+        }
     };
 
     const handleResize = () => {
@@ -177,11 +200,17 @@ const initServiceLab = () => {
     };
 
     navItems.forEach(item => {
-        item.addEventListener('click', () => activate(item));
+        item.addEventListener('click', () => {
+            activate(item);
+            stopCycle();
+        });
     });
 
     activate(navItems[0]);
     window.addEventListener('resize', handleResize);
+    startCycle();
+    nav.addEventListener('pointerenter', stopCycle);
+    nav.addEventListener('pointerleave', startCycle);
 };
 
 const initExperienceSlider = () => {
