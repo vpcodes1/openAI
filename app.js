@@ -39,7 +39,10 @@ const initRevealAnimations = () => {
             const animation = el.dataset.animate;
             const delay = el.dataset.delay || 0;
             el.style.setProperty('--delay', `${delay}ms`);
-            el.classList.add(`animate-${animation}`);
+            el.classList.add('is-visible');
+            if (animation) {
+                el.classList.add(`animate-${animation}`);
+            }
             observer.unobserve(el);
         });
     };
@@ -213,6 +216,11 @@ const initCursor = () => {
 const initReducedMotionListeners = () => {
     if (!prefersReducedMotion.matches) return;
     document.documentElement.classList.add('is-reduced-motion');
+    qsa('[data-animate]').forEach(el => {
+        el.classList.add('is-visible');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+    });
     qsa('[data-counter]').forEach(counter => {
         const prefix = counter.dataset.prefix || '';
         const suffix = counter.dataset.suffix || '';
