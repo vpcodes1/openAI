@@ -36,13 +36,14 @@ const initRevealAnimations = () => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             const el = entry.target;
-            const animation = el.dataset.animate;
-            const delay = el.dataset.delay || 0;
-            el.style.setProperty('--delay', `${delay}ms`);
-            el.classList.add('is-visible');
-            if (animation) {
-                el.classList.add(`animate-${animation}`);
+            const delay = parseInt(el.dataset.delay || '0', 10);
+            if (delay) {
+                el.style.transitionDelay = `${delay}ms`;
             }
+            el.classList.add('is-visible');
+            setTimeout(() => {
+                el.style.willChange = 'auto';
+            }, 1000 + delay);
             observer.unobserve(el);
         });
     };
@@ -53,7 +54,10 @@ const initRevealAnimations = () => {
         rootMargin: '0px 0px -10% 0px'
     });
 
-    animatedElements.forEach(el => observer.observe(el));
+    animatedElements.forEach(el => {
+        el.style.willChange = 'opacity, transform';
+        observer.observe(el);
+    });
 };
 
 const initCounters = () => {
@@ -130,6 +134,227 @@ const initProgressBars = () => {
     });
 };
 
+const initServiceLab = () => {
+    const lab = qs('[data-service-lab]');
+    if (!lab) return;
+
+    const nav = qs('[data-service-nav]', lab);
+    const navItems = qsa('.service-nav-item', nav);
+    const indicator = qs('[data-service-indicator]', nav);
+    const panels = qsa('[data-service-panel]', lab);
+    const meter = qs('[data-service-meter]');
+    if (!navItems.length || !panels.length) return;
+
+    let activeButton = navItems[0];
+
+    const activate = target => {
+        const button = typeof target === 'string'
+            ? navItems.find(item => item.dataset.serviceTarget === target)
+            : target;
+        if (!button) return;
+        const panelId = button.dataset.serviceTarget;
+        navItems.forEach(item => item.classList.toggle('is-active', item === button));
+        panels.forEach(panel => panel.classList.toggle('is-active', panel.dataset.servicePanel === panelId));
+        const offset = button.offsetTop - nav.offsetTop;
+        if (indicator) {
+            indicator.style.height = `${button.offsetHeight}px`;
+            indicator.style.setProperty('--indicator-offset', `${offset}px`);
+        }
+        if (meter) {
+            const value = parseInt(button.dataset.meter || '80', 10);
+            meter.style.width = `${value}%`;
+        }
+        activeButton = button;
+    };
+
+    const handleResize = () => {
+        if (!activeButton) return;
+        const offset = activeButton.offsetTop - nav.offsetTop;
+        if (indicator) {
+            indicator.style.height = `${activeButton.offsetHeight}px`;
+            indicator.style.setProperty('--indicator-offset', `${offset}px`);
+        }
+    };
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => activate(item));
+    });
+
+    activate(navItems[0]);
+    window.addEventListener('resize', handleResize);
+};
+
+const initExperienceSlider = () => {
+    const viewport = qs('[data-experience-viewport]');
+    if (!viewport) return;
+    const track = qs('.experience-track', viewport);
+    const dots = qsa('.experience-dot');
+    if (!track || !dots.length) return;
+
+    let current = 0;
+    let autoTimer;
+
+    const goTo = index => {
+        current = (index + dots.length) % dots.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === current));
+    };
+
+    const play = () => {
+        if (prefersReducedMotion.matches) return;
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => {
+            goTo(current + 1);
+        }, 4200);
+    };
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goTo(index);
+            play();
+        });
+    });
+
+    viewport.addEventListener('pointerenter', () => clearInterval(autoTimer));
+    viewport.addEventListener('pointerleave', play);
+
+    goTo(0);
+    play();
+};
+
+const initProcessNavigator = () => {
+    const process = qs('[data-process]');
+    if (!process) return;
+    const steps = qsa('[data-process-step]', process);
+    const panels = qsa('[data-process-panel]', process);
+    const progress = qs('[data-process-progress]', process);
+    if (!steps.length || !panels.length || !progress) return;
+
+    let activeStep = steps[0];
+
+    const isCompact = window.matchMedia('(max-width: 960px)');
+
+    const sync = target => {
+        if (isCompact.matches) return;
+        const button = typeof target === 'string'
+            ? steps.find(step => step.dataset.processStep === target)
+            : target;
+        if (!button) return;
+        const panelId = button.dataset.processStep;
+        steps.forEach(step => step.classList.toggle('is-active', step === button));
+        panels.forEach(panel => panel.classList.toggle('is-active', panel.dataset.processPanel === panelId));
+        const offset = button.offsetTop - steps[0].offsetTop;
+        progress.style.height = `${button.offsetHeight}px`;
+        progress.style.setProperty('--process-offset', `${offset}px`);
+        activeStep = button;
+    };
+
+    const handleResize = () => {
+        if (isCompact.matches) {
+            panels.forEach(panel => panel.classList.add('is-active'));
+            return;
+        }
+        panels.forEach(panel => panel.classList.toggle('is-active', panel.dataset.processPanel === activeStep.dataset.processStep));
+        sync(activeStep);
+    };
+
+    steps.forEach(step => step.addEventListener('click', () => sync(step)));
+
+    sync(steps[0]);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+};
+
+const initCaseCarousel = () => {
+    const carousel = qs('[data-case-carousel]');
+    if (!carousel) return;
+    const track = qs('.case-track', carousel);
+    const cases = qsa('[data-case]', track);
+    const prev = qs('.case-control.prev', carousel);
+    const next = qs('.case-control.next', carousel);
+    const progress = qs('[data-case-progress]', carousel);
+    if (!track || !cases.length) return;
+
+    let index = 0;
+    let autoplay;
+
+    const update = () => {
+        const active = cases[index];
+        const offset = active.offsetLeft;
+        track.style.transform = `translateX(-${offset}px)`;
+        if (progress) {
+            const value = ((index + 1) / cases.length) * 100;
+            progress.style.width = `${value}%`;
+        }
+    };
+
+    const goTo = newIndex => {
+        index = (newIndex + cases.length) % cases.length;
+        update();
+    };
+
+    const play = () => {
+        if (prefersReducedMotion.matches) return;
+        clearInterval(autoplay);
+        autoplay = setInterval(() => goTo(index + 1), 5000);
+    };
+
+    const pause = () => clearInterval(autoplay);
+
+    if (prev) prev.addEventListener('click', () => { goTo(index - 1); play(); });
+    if (next) next.addEventListener('click', () => { goTo(index + 1); play(); });
+
+    carousel.addEventListener('pointerenter', pause);
+    carousel.addEventListener('pointerleave', play);
+
+    window.addEventListener('resize', update);
+
+    goTo(0);
+    play();
+};
+
+const initTestimonialCarousel = () => {
+    const container = qs('[data-testimonial-carousel]');
+    if (!container) return;
+    const track = qs('.testimonials-track', container);
+    const testimonials = qsa('[data-testimonial]', track);
+    const prev = qs('.testimonial-control.prev', container);
+    const next = qs('.testimonial-control.next', container);
+    if (!track || !testimonials.length) return;
+
+    let index = 0;
+    let autoplay;
+
+    const update = () => {
+        const active = testimonials[index];
+        const offset = active.offsetLeft;
+        track.style.transform = `translateX(-${offset}px)`;
+    };
+
+    const goTo = newIndex => {
+        index = (newIndex + testimonials.length) % testimonials.length;
+        update();
+    };
+
+    const play = () => {
+        if (prefersReducedMotion.matches) return;
+        clearInterval(autoplay);
+        autoplay = setInterval(() => goTo(index + 1), 5800);
+    };
+
+    const pause = () => clearInterval(autoplay);
+
+    if (prev) prev.addEventListener('click', () => { goTo(index - 1); play(); });
+    if (next) next.addEventListener('click', () => { goTo(index + 1); play(); });
+
+    container.addEventListener('pointerenter', pause);
+    container.addEventListener('pointerleave', play);
+    window.addEventListener('resize', update);
+
+    goTo(0);
+    play();
+};
+
 const initParallax = () => {
     if (!isPointerFine.matches) return;
     const parallaxItems = qsa('[data-parallax]');
@@ -204,7 +429,7 @@ const initCursor = () => {
         }
     });
 
-    const interactiveSelectors = 'a, button, .btn, [data-hover-tilt]';
+    const interactiveSelectors = 'a, button, .btn, [data-hover-tilt], .service-nav-item, .process-step, .case-control, .testimonial-control, .experience-dot';
     const interactives = qsa(interactiveSelectors);
 
     interactives.forEach(el => {
@@ -243,6 +468,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setYear();
     initScrollProgress();
     initRevealAnimations();
+    initServiceLab();
+    initExperienceSlider();
+    initProcessNavigator();
+    initCaseCarousel();
+    initTestimonialCarousel();
     if (!prefersReducedMotion.matches) {
         initCounters();
         initProgressBars();
