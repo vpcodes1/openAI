@@ -177,6 +177,47 @@ const initServicesShowcase = () => {
     }
 };
 
+const initProjectsShowcase = () => {
+    const root = qs('[data-projects]');
+    if (!root) return;
+    const triggers = qsa('[data-project-trigger]', root);
+    const panels = qsa('[data-project-panel]', root);
+    if (!triggers.length || !panels.length) return;
+
+    const activate = id => {
+        triggers.forEach(trigger => {
+            const isActive = trigger.dataset.projectTrigger === id;
+            trigger.classList.toggle('is-active', isActive);
+            trigger.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            trigger.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+
+        panels.forEach(panel => {
+            const isActive = panel.dataset.projectPanel === id;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+        });
+    };
+
+    triggers.forEach(trigger => {
+        const isInitiallyActive = trigger.classList.contains('is-active');
+        trigger.setAttribute('aria-selected', isInitiallyActive ? 'true' : 'false');
+        trigger.setAttribute('tabindex', isInitiallyActive ? '0' : '-1');
+        trigger.addEventListener('click', () => activate(trigger.dataset.projectTrigger));
+        trigger.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                activate(trigger.dataset.projectTrigger);
+            }
+        });
+    });
+
+    const initial = triggers.find(trigger => trigger.classList.contains('is-active')) || triggers[0];
+    if (initial) {
+        activate(initial.dataset.projectTrigger);
+    }
+};
+
 const initExperienceShowcase = () => {
     const viewport = qs('[data-experience]');
     if (!viewport) return;
@@ -378,7 +419,7 @@ const initCursor = () => {
         }
     });
 
-    const interactiveSelectors = 'a, button, .btn, [data-hover-tilt], .service-card, .process-step, .testimonial-control, .experience-dot';
+    const interactiveSelectors = 'a, button, .btn, [data-hover-tilt], .service-card, .portfolio-item, .testimonial-control';
     const interactives = qsa(interactiveSelectors);
 
     interactives.forEach(el => {
@@ -418,6 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initRevealAnimations();
     initServicesShowcase();
+    initProjectsShowcase();
     initExperienceShowcase();
     initProcessNavigator();
     initTestimonialCarousel();
