@@ -7,6 +7,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            corePlugins: {
+                preflight: false
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        'vp-surface': '#08071C',
+                        'vp-glass': 'rgba(255,255,255,0.08)',
+                        'vp-highlight': '#8B5CF6'
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'vp-glow': '0 25px 80px rgba(99, 102, 241, 0.35)'
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,6 +49,7 @@
         </a>
         <nav class="main-nav">
             <a href="#services">Usluge</a>
+            <a href="#accelerators">Paket starta</a>
             <a href="#ai">AI ideje</a>
             <a href="#portfolio">Projekti</a>
             <a href="#process">Proces</a>
@@ -48,8 +73,7 @@
                         Pravimo moderne sajtove i aplikacije koje izgledaju fantastično i stvaraju prodaju.
                     </h1>
                     <p class="subtitle">
-                        Sve radim pod jednim krovom – od prvog prototipa do finalnog lansiranja. Sa mnom dobijate partnera koji
-                        vodi dizajn, razvoj i rezultate bez tehničkog žargona i izgubljenog vremena.
+                        Vodim dizajn, razvoj i rast od prve ideje do lansiranja – bez tehničkog žargona, sa jasnim koracima i merljivim rezultatima.
                     </p>
                     <div class="hero-actions">
                         <a class="btn primary" href="#contact">Pošalji brief</a>
@@ -147,6 +171,94 @@
                     <span>Aurora Health</span>
                     <span>Northwind Capital</span>
                     <span>Solstice Media</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section accelerators" id="accelerators">
+            <div class="relative mx-auto flex max-w-6xl flex-col gap-12 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] px-6 py-12 backdrop-blur-2xl before:pointer-events-none before:absolute before:-left-32 before:top-0 before:h-full before:w-1/2 before:rounded-full before:bg-gradient-to-br before:from-violet-500/20 before:via-sky-500/10 before:to-transparent before:blur-3xl before:content-[''] after:pointer-events-none after:absolute after:-right-40 after:bottom-0 after:h-2/3 after:w-1/2 after:rounded-full after:bg-gradient-to-tr after:from-cyan-400/20 after:via-violet-500/10 after:to-transparent after:blur-3xl after:content-['']">
+                <div class="relative z-[1] mx-auto max-w-3xl text-center" data-animate="fade-up">
+                    <p class="uppercase tracking-[0.35em] text-sm text-white/50">VP Codes paket starta</p>
+                    <h2 class="mt-4 text-3xl font-semibold leading-tight text-white md:text-[2.4rem]">Profesionalni okvir koji klijenta vodi od prvog poziva do lansiranja</h2>
+                    <p class="mt-4 text-lg text-white/70">Tailwind komponente i prilagođeni sistemi koje koristim da u prva tri sprinta dobijete vizuelni identitet, stabilan kod i jasne brojke.</p>
+                </div>
+                <div class="relative z-[1] grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-animate="fade-up" data-delay="120">
+                    <article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 shadow-vp-glow transition duration-300 hover:-translate-y-1 hover:border-vp-highlight/40">
+                        <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                            <span class="rounded-full bg-vp-highlight/20 px-3 py-1 text-vp-highlight">01</span>
+                            <span>Discovery</span>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-semibold">72h Start workshop</h3>
+                        <p class="mt-3 text-base text-white/70">Brzo dobijate jasnu sliku prioriteta, kanala i prvih ekrana koji demonstriraju ideju.</p>
+                        <ul class="mt-6 space-y-3 text-left text-white/80">
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-vp-highlight"></span><span>Express audit postojećeg sajta ili aplikacije.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span><span>Mapiranje journey-ja i ključnih prilika za AI pomoć.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400"></span><span>Mini prototip spreman za validaciju sa timom.</span></li>
+                        </ul>
+                    </article>
+                    <article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 shadow-vp-glow transition duration-300 hover:-translate-y-1 hover:border-vp-highlight/40">
+                        <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                            <span class="rounded-full bg-vp-highlight/20 px-3 py-1 text-vp-highlight">02</span>
+                            <span>Design + build</span>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-semibold">Tailwind design system</h3>
+                        <p class="mt-3 text-base text-white/70">Gradim biblioteku komponenti i animacija koje su spremne za razvoj bez prepisivanja.</p>
+                        <ul class="mt-6 space-y-3 text-left text-white/80">
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-violet-400"></span><span>UI kit i copy blokovi koji čuvaju konzistentnost.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-400"></span><span>Motion blueprint za hero, kartice i prelaze.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-amber-400"></span><span>Performantne Tailwind komponente spremne za CMS.</span></li>
+                        </ul>
+                    </article>
+                    <article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 shadow-vp-glow transition duration-300 hover:-translate-y-1 hover:border-vp-highlight/40">
+                        <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                            <span class="rounded-full bg-vp-highlight/20 px-3 py-1 text-vp-highlight">03</span>
+                            <span>Launch care</span>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-semibold">Growth control room</h3>
+                        <p class="mt-3 text-base text-white/70">Nakon lansiranja uvodimo AI asistente, praćenje konverzija i jasne nedeljne ritmove.</p>
+                        <ul class="mt-6 space-y-3 text-left text-white/80">
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400"></span><span>AI skripte koje prate leadove i šalju follow-up.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-lime-400"></span><span>Dashboard sa KPI-jevima i planom testova.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-400"></span><span>Ritual „72h care" za sve nove korisnike.</span></li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="relative z-[1] grid gap-6 lg:grid-cols-[1.2fr,0.8fr]" data-animate="fade-up" data-delay="220">
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-vp-glow">
+                        <h3 class="text-2xl font-semibold">Šta klijent dobija posle prvog meseca</h3>
+                        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-sm uppercase tracking-[0.25em] text-white/50">Dokumentacija</p>
+                                <p class="mt-2 text-lg font-semibold text-white">Kompletna Tailwind biblioteka i guidelines</p>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-sm uppercase tracking-[0.25em] text-white/50">Merenje</p>
+                                <p class="mt-2 text-lg font-semibold text-white">Dashboard sa ključnim metrikama i AI preporukama</p>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-sm uppercase tracking-[0.25em] text-white/50">Tim</p>
+                                <p class="mt-2 text-lg font-semibold text-white">Slack/Notion workspace sa svim fajlovima</p>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-sm uppercase tracking-[0.25em] text-white/50">Roadmap</p>
+                                <p class="mt-2 text-lg font-semibold text-white">90-dnevni plan konverzija i sadržaja</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-b from-vp-highlight/20 via-transparent to-transparent p-8 text-white shadow-vp-glow">
+                        <div>
+                            <h3 class="text-2xl font-semibold">Timeline na kratko</h3>
+                            <ul class="mt-4 space-y-3 text-white/80">
+                                <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-white/60"></span><span>Dan 1: Kickoff i definisanje ciljeva.</span></li>
+                                <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-white/60"></span><span>Dan 7: Prvi prototip i AI asistenti u test režimu.</span></li>
+                                <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-white/60"></span><span>Dan 21: Dizajn sistem i plan sadržaja spremni za razvoj.</span></li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl bg-white/10 p-5">
+                            <p class="text-sm uppercase tracking-[0.25em] text-white/50">Rezultat</p>
+                            <p class="mt-3 text-xl font-semibold">Sve što je potrebno da tim samouvereno lansira i dalje skalira proizvod.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -636,7 +748,7 @@
             </div>
             <div class="portfolio-shell">
                 <div class="portfolio-intro" data-animate="fade-up" data-delay="120">
-                    <p>Svaki projekat gradim kao partner u biznisu: jasno definišemo cilj, brzo pravimo prve verzije i doterujemo ih na osnovu realnih podataka. Ispod su dve AI priče koje najčešće prepričavam na sastancima.</p>
+                    <p>U svakoj saradnji glavni fokus je brz prototip, jasna komunikacija i merljiv ishod. Izdvajam dve AI priče koje najbolje pokazuju kako vodim projekat od ideje do rezultata.</p>
                 </div>
                 <div class="portfolio-grid" data-animate="fade-up" data-delay="220">
                     <article class="project-card">
@@ -645,7 +757,7 @@
                             <span class="project-year">2024</span>
                         </header>
                         <h3>SmartCampus CRM</h3>
-                        <p>Platforma za fakultete koja objedinjuje komunikaciju, fakturisanje i analitiku, uz AI asistenta koji predlaže sledeće korake za tim.</p>
+                        <p>CRM za fakultete koji objedinjuje komunikaciju, finansije i AI asistenta koji predlaže sledeće korake timu.</p>
                         <ul class="project-points">
                             <li>Jednostavan pregled studenata, uplata i dugovanja u realnom vremenu.</li>
                             <li>AI predlozi za odgovore na upite i kreiranje ponuda za saradnje.</li>
@@ -675,7 +787,7 @@
                             <span class="project-year">2023</span>
                         </header>
                         <h3>VisionSpace 3D Studio</h3>
-                        <p>Alat za arhitekte i dizajnere enterijera koji kombinuje precizno 3D modelovanje sa AI idejama spremnim za prezentaciju klijentu.</p>
+                        <p>Studio za arhitekte koji spaja 3D modelovanje i AI predloge kako bi klijent brže odabrao idealno rešenje.</p>
                         <ul class="project-points">
                             <li>AI bira stilove i materijale na osnovu zadatih preferenci.</li>
                             <li>Radni prostor sa alatima za osvetljenje, teksture i pregled budžeta.</li>
@@ -862,6 +974,7 @@
             </div>
             <div class="footer-links">
                 <a href="#services">Usluge</a>
+                <a href="#accelerators">Start paket</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#faq">FAQ</a>
                 <a href="#contact">Kontakt</a>
