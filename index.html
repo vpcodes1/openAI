@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VP Codes — Portfolio digitalnih proizvoda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            corePlugins: {
+                preflight: false
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        'vp-surface': '#08071C',
+                        'vp-glass': 'rgba(255,255,255,0.08)',
+                        'vp-highlight': '#8B5CF6'
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'vp-glow': '0 25px 80px rgba(99, 102, 241, 0.35)'
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scroll-progress" data-scroll-progress>
+        <span></span>
+    </div>
+    <div class="cursor" data-cursor></div>
+    <div class="page-glow"></div>
+    <header class="top-bar" data-animate="fade-down">
+        <a class="brand" href="#hero" aria-label="VP Codes Studio">
+            <img src="assets/vp-codes-logo.svg" alt="VP Codes Studio logo">
+            <div class="brand-copy">
+                <strong>VP Codes</strong>
+                <span>Studio</span>
+            </div>
+        </a>
+        <nav class="main-nav">
+            <a href="#services">Usluge</a>
+            <a href="#accelerators">Paket starta</a>
+            <a href="#ai">AI ideje</a>
+            <a href="#portfolio">Projekti</a>
+            <a href="#process">Proces</a>
+            <a href="#insights">Stack</a>
+            <a href="#testimonials">Utisci</a>
+        </nav>
+        <a href="#contact" class="btn primary ghosted">Rezerviši poziv</a>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-decoration hero-decoration--left"></div>
+            <div class="hero-decoration hero-decoration--right"></div>
+            <div class="hero-spark hero-spark--one" aria-hidden="true"></div>
+            <div class="hero-spark hero-spark--two" aria-hidden="true"></div>
+            <div class="hero-spark hero-spark--three" aria-hidden="true"></div>
+            <div class="hero-inner">
+                <div class="hero-content" data-animate="fade-up" data-delay="100">
+                    <p class="eyebrow">VP Codes · Vladan Petrović, web kreator</p>
+                    <h1>
+                        Pravimo moderne sajtove i aplikacije koje izgledaju fantastično i stvaraju prodaju.
+                    </h1>
+                    <p class="subtitle">
+                        Vodim dizajn, razvoj i rast od prve ideje do lansiranja – bez tehničkog žargona, sa jasnim koracima i merljivim rezultatima.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn primary" href="#contact">Pošalji brief</a>
+                        <a class="btn secondary" href="#portfolio">Portfolio projekti</a>
+                    </div>
+                    <div class="hero-badges">
+                        <div class="floating-badge" data-animate="rise" data-delay="200">
+                            <span data-counter="84" data-prefix="+" data-suffix=" projekata">+84 projekata</span>
+                            <small>lansirano poslednjih 10 godina</small>
+                        </div>
+                        <div class="floating-badge" data-animate="rise" data-delay="350">
+                            <span data-counter="31" data-prefix="+" data-suffix="%">+31%</span>
+                            <small>prosečan rast konverzije</small>
+                        </div>
+                        <div class="floating-badge" data-animate="rise" data-delay="500">
+                            <span data-counter="12" data-prefix="">12</span>
+                            <small>stalnih partnerskih timova</small>
+                        </div>
+                    </div>
+                    <div class="hero-specialities" data-animate="rise" data-delay="650" aria-label="Specijalizovane ekspertize">
+                        <span>Premium web dizajn</span>
+                        <span>Brzi razvoj</span>
+                        <span>Optimizacija prodaje</span>
+                        <span>Animacije sa pričom</span>
+                    </div>
+                </div>
+                <div class="hero-showcase" data-animate="float" data-delay="200" data-parallax>
+                    <div class="showcase-card">
+                        <div class="showcase-header">
+                            <div class="pill success">Live</div>
+                            <div class="pill neutral">Brze web tehnologije</div>
+                            <div class="pill neutral">Dosledan dizajn</div>
+                        </div>
+                        <div class="showcase-body">
+                            <h3>FluxPay Investor Hub</h3>
+                            <p>Nova platforma za investitore koja jednostavno vodi korisnika do prave odluke.</p>
+                            <ul>
+                                <li>Jasan plan razvoja</li>
+                                <li>Animacije koje povećavaju poverenje</li>
+                                <li>Bezbedna plaćanja i registracija</li>
+                            </ul>
+                            <div class="progress-trail">
+                                <span class="progress-label">Konverzija leadova</span>
+                                <div class="progress-bar"><span data-progress="92" style="--progress:92%;"></span></div>
+                            </div>
+                            <div class="progress-trail">
+                                <span class="progress-label">Brzina učitavanja</span>
+                                <div class="progress-bar alt"><span data-progress="88" style="--progress:88%;"></span></div>
+                            </div>
+                        </div>
+                        <div class="showcase-footer">
+                            <div class="metric">
+                                <strong data-counter="63" data-prefix="+" data-suffix="%">+63%</strong>
+                                <span>Aktivnih korisnika</span>
+                            </div>
+                            <div class="metric">
+                                <strong data-counter="41" data-prefix="−" data-suffix="%">−41%</strong>
+                                <span>Trošak akvizicije</span>
+                            </div>
+                            <div class="metric">
+                                <strong data-counter="3.4" data-suffix="x">3.4x</strong>
+                                <span>ROI u 6 meseci</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="scroll-indicator" href="#services">Scroll za više</a>
+        </section>
+
+        <section class="section partners" id="partners">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Partneri koji mi veruju</h2>
+                <p>Kompanije i startapi koji su mi poverili svoje ključne projekte.</p>
+            </div>
+            <div class="logo-marquee" aria-label="Lista klijenata">
+                <div class="logo-track">
+                    <span>Infinitum Labs</span>
+                    <span>FluxPay</span>
+                    <span>Lumina Collective</span>
+                    <span>OrbitOps</span>
+                    <span>NeuroBloom</span>
+                    <span>UrbanPulse</span>
+                    <span>Helios Ventures</span>
+                    <span>Aurora Health</span>
+                    <span>Northwind Capital</span>
+                    <span>Solstice Media</span>
+                    <span>Infinitum Labs</span>
+                    <span>FluxPay</span>
+                    <span>Lumina Collective</span>
+                    <span>OrbitOps</span>
+                    <span>NeuroBloom</span>
+                    <span>UrbanPulse</span>
+                    <span>Helios Ventures</span>
+                    <span>Aurora Health</span>
+                    <span>Northwind Capital</span>
+                    <span>Solstice Media</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section accelerators" id="accelerators">
+            <div class="relative mx-auto flex max-w-6xl flex-col gap-12 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] px-6 py-12 backdrop-blur-2xl before:pointer-events-none before:absolute before:-left-32 before:top-0 before:h-full before:w-1/2 before:rounded-full before:bg-gradient-to-br before:from-violet-500/20 before:via-sky-500/10 before:to-transparent before:blur-3xl before:content-[''] after:pointer-events-none after:absolute after:-right-40 after:bottom-0 after:h-2/3 after:w-1/2 after:rounded-full after:bg-gradient-to-tr after:from-cyan-400/20 after:via-violet-500/10 after:to-transparent after:blur-3xl after:content-['']">
+                <div class="relative z-[1] mx-auto max-w-3xl text-center" data-animate="fade-up">
+                    <p class="uppercase tracking-[0.35em] text-sm text-white/50">VP Codes paket starta</p>
+                    <h2 class="mt-4 text-3xl font-semibold leading-tight text-white md:text-[2.4rem]">Profesionalni okvir koji klijenta vodi od prvog poziva do lansiranja</h2>
+                    <p class="mt-4 text-lg text-white/70">Tailwind komponente i prilagođeni sistemi koje koristim da u prva tri sprinta dobijete vizuelni identitet, stabilan kod i jasne brojke.</p>
+                </div>
+                <div class="relative z-[1] grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-animate="fade-up" data-delay="120">
+                    <article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 shadow-vp-glow transition duration-300 hover:-translate-y-1 hover:border-vp-highlight/40">
+                        <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                            <span class="rounded-full bg-vp-highlight/20 px-3 py-1 text-vp-highlight">01</span>
+                            <span>Discovery</span>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-semibold">72h Start workshop</h3>
+                        <p class="mt-3 text-base text-white/70">Brzo dobijate jasnu sliku prioriteta, kanala i prvih ekrana koji demonstriraju ideju.</p>
+                        <ul class="mt-6 space-y-3 text-left text-white/80">
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-vp-highlight"></span><span>Express audit postojećeg sajta ili aplikacije.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span><span>Mapiranje journey-ja i ključnih prilika za AI pomoć.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-sky-400"></span><span>Mini prototip spreman za validaciju sa timom.</span></li>
+                        </ul>
+                    </article>
+                    <article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 shadow-vp-glow transition duration-300 hover:-translate-y-1 hover:border-vp-highlight/40">
+                        <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                            <span class="rounded-full bg-vp-highlight/20 px-3 py-1 text-vp-highlight">02</span>
+                            <span>Design + build</span>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-semibold">Tailwind design system</h3>
+                        <p class="mt-3 text-base text-white/70">Gradim biblioteku komponenti i animacija koje su spremne za razvoj bez prepisivanja.</p>
+                        <ul class="mt-6 space-y-3 text-left text-white/80">
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-violet-400"></span><span>UI kit i copy blokovi koji čuvaju konzistentnost.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-400"></span><span>Motion blueprint za hero, kartice i prelaze.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-amber-400"></span><span>Performantne Tailwind komponente spremne za CMS.</span></li>
+                        </ul>
+                    </article>
+                    <article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 shadow-vp-glow transition duration-300 hover:-translate-y-1 hover:border-vp-highlight/40">
+                        <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+                            <span class="rounded-full bg-vp-highlight/20 px-3 py-1 text-vp-highlight">03</span>
+                            <span>Launch care</span>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-semibold">Growth control room</h3>
+                        <p class="mt-3 text-base text-white/70">Nakon lansiranja uvodimo AI asistente, praćenje konverzija i jasne nedeljne ritmove.</p>
+                        <ul class="mt-6 space-y-3 text-left text-white/80">
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-rose-400"></span><span>AI skripte koje prate leadove i šalju follow-up.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-lime-400"></span><span>Dashboard sa KPI-jevima i planom testova.</span></li>
+                            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-400"></span><span>Ritual „72h care" za sve nove korisnike.</span></li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="relative z-[1] grid gap-6 lg:grid-cols-[1.2fr,0.8fr]" data-animate="fade-up" data-delay="220">
+                    <div class="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-vp-glow">
+                        <h3 class="text-2xl font-semibold">Šta klijent dobija posle prvog meseca</h3>
+                        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-sm uppercase tracking-[0.25em] text-white/50">Dokumentacija</p>
+                                <p class="mt-2 text-lg font-semibold text-white">Kompletna Tailwind biblioteka i guidelines</p>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-sm uppercase tracking-[0.25em] text-white/50">Merenje</p>
+                                <p class="mt-2 text-lg font-semibold text-white">Dashboard sa ključnim metrikama i AI preporukama</p>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-sm uppercase tracking-[0.25em] text-white/50">Tim</p>
+                                <p class="mt-2 text-lg font-semibold text-white">Slack/Notion workspace sa svim fajlovima</p>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-sm uppercase tracking-[0.25em] text-white/50">Roadmap</p>
+                                <p class="mt-2 text-lg font-semibold text-white">90-dnevni plan konverzija i sadržaja</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-b from-vp-highlight/20 via-transparent to-transparent p-8 text-white shadow-vp-glow">
+                        <div>
+                            <h3 class="text-2xl font-semibold">Timeline na kratko</h3>
+                            <ul class="mt-4 space-y-3 text-white/80">
+                                <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-white/60"></span><span>Dan 1: Kickoff i definisanje ciljeva.</span></li>
+                                <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-white/60"></span><span>Dan 7: Prvi prototip i AI asistenti u test režimu.</span></li>
+                                <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-white/60"></span><span>Dan 21: Dizajn sistem i plan sadržaja spremni za razvoj.</span></li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl bg-white/10 p-5">
+                            <p class="text-sm uppercase tracking-[0.25em] text-white/50">Rezultat</p>
+                            <p class="mt-3 text-xl font-semibold">Sve što je potrebno da tim samouvereno lansira i dalje skalira proizvod.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section services">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Usluge koje vode od ideje do prodaje</h2>
+                <p>Četiri jasna paketa koja smanjuju rizik, ubrzavaju lansiranje i donose opipljive rezultate.</p>
+            </div>
+            <div class="services-showcase" data-services>
+                <div class="services-rail" role="tablist">
+                    <button class="service-card is-active" type="button" role="tab" data-service-trigger="strategy" aria-controls="service-strategy">
+                        <span class="service-order">01</span>
+                        <div class="service-summary">
+                            <h3>Plan proizvoda</h3>
+                            <p>Za tri nedelje znate šta gradimo, za koga i zašto.</p>
+                            <div class="service-tags" aria-hidden="true">
+                                <span>Istraživanje korisnika</span>
+                                <span>Plan razvoja</span>
+                            </div>
+                        </div>
+                        <div class="service-card-results">
+                            <span><strong>+34%</strong><small>brže do prave publike</small></span>
+                            <span><strong>−18%</strong><small>manji troškovi lansiranja</small></span>
+                        </div>
+                    </button>
+                    <button class="service-card" type="button" role="tab" data-service-trigger="experience" aria-controls="service-experience">
+                        <span class="service-order">02</span>
+                        <div class="service-summary">
+                            <h3>Premium dizajn</h3>
+                            <p>Brend, UI i animacije koji ostavljaju utisak.</p>
+                            <div class="service-tags" aria-hidden="true">
+                                <span>Moderni UI</span>
+                                <span>Animacije</span>
+                            </div>
+                        </div>
+                        <div class="service-card-results">
+                            <span><strong>2.4x</strong><small>duže zadržavanje</small></span>
+                            <span><strong>+71</strong><small>zadovoljstvo korisnika</small></span>
+                        </div>
+                    </button>
+                    <button class="service-card" type="button" role="tab" data-service-trigger="engineering" aria-controls="service-engineering">
+                        <span class="service-order">03</span>
+                        <div class="service-summary">
+                            <h3>Brzi razvoj</h3>
+                            <p>Stabilan kod, laka administracija i odlične performanse.</p>
+                            <div class="service-tags" aria-hidden="true">
+                                <span>Stabilna arhitektura</span>
+                                <span>Automatsko testiranje</span>
+                            </div>
+                        </div>
+                        <div class="service-card-results">
+                            <span><strong>−38%</strong><small>brže učitavanje</small></span>
+                            <span><strong>99.98%</strong><small>stabilan rad</small></span>
+                        </div>
+                    </button>
+                    <button class="service-card" type="button" role="tab" data-service-trigger="growth" aria-controls="service-growth">
+                        <span class="service-order">04</span>
+                        <div class="service-summary">
+                            <h3>Rast i marketing</h3>
+                            <p>Plan testova koji stalno podiže prodaju.</p>
+                            <div class="service-tags" aria-hidden="true">
+                                <span>Marketing automatizacija</span>
+                                <span>Optimizacija cene</span>
+                            </div>
+                        </div>
+                        <div class="service-card-results">
+                            <span><strong>+27%</strong><small>brži rast prodaje</small></span>
+                            <span><strong>3.1x</strong><small>veća vrednost klijenta</small></span>
+                        </div>
+                    </button>
+                </div>
+                <div class="service-detail">
+                    <article class="service-detail-panel is-active" data-service-panel="strategy" id="service-strategy" role="tabpanel">
+                        <div class="spotlight-window" data-hover-tilt>
+                            <div class="spotlight-header">
+                                <span class="pill success">Start paket</span>
+                                <span class="pill neutral">3 nedelje</span>
+                            </div>
+                            <div class="spotlight-body">
+                                <h4>Jasna mapa puta</h4>
+                                <p class="spotlight-lede">Prvih 72 sata koristimo da upoznamo vaš biznis i kupce, a zatim crtamo jednostavan plan rada.</p>
+                                <ul class="spotlight-list">
+                                    <li>Radionica sa ključnim ljudima</li>
+                                    <li>Plan prioriteta i ciljeva</li>
+                                    <li>Interaktivni prototip za prezentaciju</li>
+                                </ul>
+                            </div>
+                            <div class="spotlight-footer">
+                                <div class="spotlight-metric">
+                                    <strong>+34%</strong>
+                                    <span>brže do prave publike</span>
+                                </div>
+                                <div class="spotlight-metric">
+                                    <strong>−18%</strong>
+                                    <span>niži trošak kampanja</span>
+                                </div>
+                                <div class="spotlight-metric">
+                                    <strong>3</strong>
+                                    <span>nedeljna usklađivanja</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-detail-body">
+                            <div class="service-quick-info">
+                                <h4>Šta dobijate</h4>
+                                <ul class="service-quick-list">
+                                    <li>Plan rada po nedeljama</li>
+                                    <li>Profil idealnog kupca</li>
+                                    <li>Prototip spreman za testiranje</li>
+                                </ul>
+                            </div>
+                            <div class="service-quick-info">
+                                <h4>Kada je najbolje</h4>
+                                <ul class="service-quick-list">
+                                    <li>pokrećete novi digitalni proizvod</li>
+                                    <li>treba vam potvrda ideje pre ulaganja</li>
+                                    <li>spremate prezentaciju za investitore</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="service-detail-panel" data-service-panel="experience" id="service-experience" role="tabpanel" hidden>
+                        <div class="spotlight-window" data-hover-tilt>
+                            <div class="spotlight-header">
+                                <span class="pill success">Dizajn koji prodaje</span>
+                                <span class="pill neutral">6 nedelja</span>
+                            </div>
+                            <div class="spotlight-body">
+                                <h4>Kompletan vizuelni identitet</h4>
+                                <p class="spotlight-lede">Spajamo izgled, tekst i animacije u jedinstveno iskustvo koje vodi korisnika kroz priču.</p>
+                                <ul class="spotlight-list">
+                                    <li>Style guide i biblioteka komponenti</li>
+                                    <li>Interaktivni prototip sa pravim sadržajem</li>
+                                    <li>Kontrolne liste za prenos timu za razvoj</li>
+                                </ul>
+                            </div>
+                            <div class="spotlight-footer">
+                                <div class="spotlight-metric">
+                                    <strong>2.4x</strong>
+                                    <span>posetioci duže ostaju</span>
+                                </div>
+                                <div class="spotlight-metric">
+                                    <strong>+71</strong>
+                                    <span>zadovoljstvo kupaca</span>
+                                </div>
+                                <div class="spotlight-metric">
+                                    <strong>45+</strong>
+                                    <span>unikatnih animacija</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-detail-body">
+                            <div class="service-quick-info">
+                                <h4>Šta je uključeno</h4>
+                                <ul class="service-quick-list">
+                                    <li>Kompletna biblioteka dizajn elemenata</li>
+                                    <li>Scenarija za ključne stranice</li>
+                                    <li>Uputstva za tekst i ton komunikacije</li>
+                                </ul>
+                            </div>
+                            <div class="service-quick-info">
+                                <h4>Kada najviše znači</h4>
+                                <ul class="service-quick-list">
+                                    <li>spajate brand i proizvod u jedinstven UI</li>
+                                    <li>želite doslednost kroz sve kanale</li>
+                                    <li>treba da ubrzate saradnju dizajn i dev tima</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="service-detail-panel" data-service-panel="engineering" id="service-engineering" role="tabpanel" hidden>
+                        <div class="spotlight-window" data-hover-tilt>
+                            <div class="spotlight-header">
+                                <span class="pill success">Brza implementacija</span>
+                                <span class="pill neutral">kontinuirano</span>
+                            </div>
+                            <div class="spotlight-body">
+                                <h4>Razvoj bez stresa</h4>
+                                <p class="spotlight-lede">Kod, testovi i serveri rade zajedno tako da vaš proizvod ostane stabilan i spreman za rast.</p>
+                                <ul class="spotlight-list">
+                                    <li>Hosting spreman za velike posete</li>
+                                    <li>Stalni nadzor i upozorenja</li>
+                                    <li>Automatsko testiranje pre svakog izlaska</li>
+                                </ul>
+                            </div>
+                            <div class="spotlight-footer">
+                                <div class="spotlight-metric">
+                                    <strong>−38%</strong>
+                                    <span>brže učitavanje</span>
+                                </div>
+                                <div class="spotlight-metric">
+                                    <strong>99.98%</strong>
+                                    <span>stabilnost</span>
+                                </div>
+                                <div class="spotlight-metric">
+                                    <strong>0</strong>
+                                    <span>blokada pre prezentacija</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-detail-body">
+                            <div class="service-quick-info">
+                                <h4>Šta radimo</h4>
+                                <ul class="service-quick-list">
+                                    <li>Moderna arhitektura i integracije</li>
+                                    <li>Automatsko testiranje i isporuka</li>
+                                    <li>Lista provera za lansiranje</li>
+                                </ul>
+                            </div>
+                            <div class="service-quick-info">
+                                <h4>Idealno je</h4>
+                                <ul class="service-quick-list">
+                                    <li>kada očekujete nagli rast poseta</li>
+                                    <li>kada vam treba siguran rad 24/7</li>
+                                    <li>kada se spajate sa drugim sistemima</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="service-detail-panel" data-service-panel="growth" id="service-growth" role="tabpanel" hidden>
+                        <div class="spotlight-window" data-hover-tilt>
+                            <div class="spotlight-header">
+                                <span class="pill success">Rast u ritmu</span>
+                                <span class="pill neutral">14 dana</span>
+                            </div>
+                            <div class="spotlight-body">
+                                <h4>Plan za stalno povećanje prodaje</h4>
+                                <p class="spotlight-lede">Na svake dve nedelje uvodimo novi test, delimo zaključke i zajedno donosimo sledeće korake.</p>
+                                <ul class="spotlight-list">
+                                    <li>Spisak testova i pretpostavki</li>
+                                    <li>Automatizacije za marketing i prodaju</li>
+                                    <li>Pregled cena i ponuda</li>
+                                </ul>
+                            </div>
+                            <div class="spotlight-footer">
+                                <div class="spotlight-metric">
+                                    <strong>+27%</strong>
+                                    <span>brži rast prodaje</span>
+                                </div>
+                                <div class="spotlight-metric">
+                                    <strong>3.1x</strong>
+                                    <span>veća vrednost klijenta</span>
+                                </div>
+                                <div class="spotlight-metric">
+                                    <strong>24</strong>
+                                    <span>aktivnih automatizacija</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-detail-body">
+                            <div class="service-quick-info">
+                                <h4>Šta uključuje</h4>
+                                <ul class="service-quick-list">
+                                    <li>Kalendar eksperimenata</li>
+                                    <li>Analizu prodajnog levka sa preporukama</li>
+                                    <li>Testiranje cena i ponuda</li>
+                                </ul>
+                            </div>
+                            <div class="service-quick-info">
+                                <h4>Kada ga birate</h4>
+                                <ul class="service-quick-list">
+                                    <li>želite stabilan rast</li>
+                                    <li>kupci odustaju pre kupovine</li>
+                                    <li>treba vam redovan plan marketing aktivnosti</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai" class="section ai-suite">
+            <div class="section-header" data-animate="fade-up">
+                <h2>AI ideje koje donose više upita</h2>
+                <p>Kratke automatizacije koje uvodim da bi posetioci brže stigli do razgovora sa vama.</p>
+            </div>
+            <div class="ai-showcase" data-ai-showcase data-animate="fade-up" data-delay="120">
+                <div class="ai-spotlight">
+                    <div class="ai-spotlight-header">
+                        <span class="pill success">AI studio</span>
+                        <span class="pill neutral">realne koristi</span>
+                    </div>
+                    <h3 data-ai-title>AI prodajni pomoćnik</h3>
+                    <p data-ai-description>Chat asistent koji uvek zna sledeći korak i vodi posetioce do razgovora.</p>
+                    <ul class="ai-spotlight-points">
+                        <li data-ai-point="0">Odgovara u sekundi umesto čekanja na email.</li>
+                        <li data-ai-point="1">Prikuplja kontakt i šalje ga direktno meni.</li>
+                        <li data-ai-point="2">Predlaže sledeći korak na osnovu teme.</li>
+                    </ul>
+                    <div class="ai-spotlight-footer">
+                        <div class="ai-spotlight-metric">
+                            <strong data-ai-metric>+35%</strong>
+                            <span data-ai-metric-label>više zakazanih poziva u prvim nedeljama</span>
+                        </div>
+                        <a class="btn tertiary" href="#contact">Zatraži AI demo</a>
+                    </div>
+                    <div class="ai-orb" aria-hidden="true"></div>
+                </div>
+                <div class="ai-aside">
+                    <div class="ai-idea-board" role="tablist">
+                        <button class="ai-idea is-active" type="button" role="tab" data-ai-idea
+                            data-title="AI prodajni pomoćnik"
+                            data-description="Chat asistent koji uvek zna sledeći korak i vodi posetioce do razgovora."
+                            data-point-one="Odmah odgovara na najčešća pitanja umesto čekanja na email."
+                            data-point-two="Prikuplja kontakt i šalje ga direktno u tvoj inbox."
+                            data-point-three="Predlaže sledeći korak na osnovu interesovanja."
+                            data-metric="+35%"
+                            data-metric-label="više zakazanih poziva u prvim nedeljama">
+                            <span class="ai-idea-name">AI prodajni pomoćnik</span>
+                            <span class="ai-idea-summary">Razgovara sa posetiocima umesto tebe.</span>
+                        </button>
+                        <button class="ai-idea" type="button" role="tab" data-ai-idea
+                            data-title="Automatski follow-up"
+                            data-description="AI piše kratke poruke nakon svake posete ili poziva i drži razgovor živ."
+                            data-point-one="Priprema personalizovane email odgovore za leadove."
+                            data-point-two="Podseća na sastanke i šalje materijale u tvoje ime."
+                            data-point-three="Sprema sumarne beleške koje tim koristi odmah."
+                            data-metric="4x"
+                            data-metric-label="više odgovora na follow-up poruke">
+                            <span class="ai-idea-name">Automatski follow-up</span>
+                            <span class="ai-idea-summary">AI nastavlja razgovor kada ti završiš poziv.</span>
+                        </button>
+                        <button class="ai-idea" type="button" role="tab" data-ai-idea
+                            data-title="Pametni izveštaji"
+                            data-description="Jedan pregled koji pokazuje šta donosi upite i gde treba pojačati kampanje."
+                            data-point-one="Spaja podatke sa sajta, oglasa i CRM-a."
+                            data-point-two="Predlaže sledeći eksperiment koji vredi testirati."
+                            data-point-three="Upozorava kada konverzija padne ispod cilja."
+                            data-metric="−40%"
+                            data-metric-label="manje ručnog pregledanja tabela">
+                            <span class="ai-idea-name">Pametni izveštaji</span>
+                            <span class="ai-idea-summary">Zna koje akcije donose najbolji rezultat.</span>
+                        </button>
+                        <button class="ai-idea" type="button" role="tab" data-ai-idea
+                            data-title="AI sadržaj na autopilotu"
+                            data-description="Plan sadržaja koji AI predlaže i priprema, dok ti samo potvrđuješ ton."
+                            data-point-one="Predlaže teme za blog, newsletter i društvene mreže."
+                            data-point-two="Piše prve verzije tekstova sa tvojim tonom."
+                            data-point-three="Pakuje vizuale i kratke video skripte za objave."
+                            data-metric="10h"
+                            data-metric-label="nedeljno oslobođenog vremena za tim">
+                            <span class="ai-idea-name">AI sadržaj na autopilotu</span>
+                            <span class="ai-idea-summary">Plan i tekstovi spremni za objavu.</span>
+                        </button>
+                    </div>
+                    <div class="ai-mini-grid">
+                        <article class="ai-mini-card">
+                            <span class="ai-mini-label">Brza implementacija</span>
+                            <strong>7 dana</strong>
+                            <p>za prvu verziju AI asistenta na tvom sajtu.</p>
+                        </article>
+                        <article class="ai-mini-card">
+                            <span class="ai-mini-label">Vidljiv efekat</span>
+                            <strong>+22%</strong>
+                            <p>više kvalifikovanih upita kod poslednja tri klijenta.</p>
+                        </article>
+                        <article class="ai-mini-card">
+                            <span class="ai-mini-label">Bez rizika</span>
+                            <strong>Start paket</strong>
+                            <p>uključuje audit, podešavanje i trening za tvoj tim.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stack" id="insights">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Kako vodim projekat od početka do lansiranja</h2>
+                <p>Koristim proverene alate i jasne korake kako biste u svakom trenutku znali šta se radi i zašto.</p>
+            </div>
+            <div class="stack-grid">
+                <article class="stack-card" data-animate="fade-up">
+                    <h3>Moderni web sloj</h3>
+                    <p>Gradim brze i pouzdane interfejse koristeći alate kao što su Next.js i Astro.</p>
+                    <ul>
+                        <li>Komponente prilagođene vašem brendu</li>
+                        <li>Optimizovano učitavanje na svim uređajima</li>
+                        <li>Animacije koje ne usporavaju sajt</li>
+                    </ul>
+                </article>
+                <article class="stack-card" data-animate="fade-up" data-delay="120">
+                    <h3>Dizajn i prototipi</h3>
+                    <p>Ideje pretvaram u jasne prototipe u Figma-i i Framer-u, spremne za povratnu informaciju.</p>
+                    <ul>
+                        <li>UI kit sa svim elementima</li>
+                        <li>Kontrolne liste i video objašnjenja za tim</li>
+                        <li>Mikroanimacije koje vode korisnika</li>
+                    </ul>
+                </article>
+                <article class="stack-card" data-animate="fade-up" data-delay="200">
+                    <h3>Pouzdana pozadina</h3>
+                    <p>Povezujem bazu podataka, integracije i hosting tako da sistem radi brzo i sigurno.</p>
+                    <ul>
+                        <li>Arhitektura spremna za rast</li>
+                        <li>Automatska isporuka i testiranje</li>
+                        <li>Praćenje performansi i obaveštenja</li>
+                    </ul>
+                </article>
+                <article class="stack-card" data-animate="fade-up" data-delay="280">
+                    <h3>Analitika i rast</h3>
+                    <p>Postavljam jasne metrike, izveštaje i automatizacije da biste znali šta donosi rezultat.</p>
+                    <ul>
+                        <li>Pregled ključnih brojki na jednom mestu</li>
+                        <li>Plan testova na svake dve nedelje</li>
+                        <li>Automatizovane poruke i kampanje</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section process" id="process">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Kako izgleda zajednički rad</h2>
+                <p>Tri faze, jasni ishodi i stalna komunikacija direktno sa mnom.</p>
+            </div>
+            <div class="process-roadmap">
+                <article class="process-stage" data-animate="fade-up">
+                    <span class="process-index">01</span>
+                    <h3>Upoznajemo vaš biznis</h3>
+                    <p>Prva tri dana posvećujemo ciljevima, publici i prioritetima.</p>
+                    <ul>
+                        <li>Radionica sa ključnim timom</li>
+                        <li>Mapa ciljeva i brzi plan rada</li>
+                        <li>Prvi prototip sa povratnim informacijama</li>
+                    </ul>
+                </article>
+                <article class="process-stage" data-animate="fade-up" data-delay="120">
+                    <span class="process-index">02</span>
+                    <h3>Gradimo i testiramo</h3>
+                    <p>Radimo u dvonedeljnim ciklusima uz demonstracije i jasne zadatke.</p>
+                    <ul>
+                        <li>Dizajn sistem i funkcionalne stranice</li>
+                        <li>Automatska testiranja i proverene performanse</li>
+                        <li>Video rezime posle svakog sprinta</li>
+                    </ul>
+                </article>
+                <article class="process-stage" data-animate="fade-up" data-delay="200">
+                    <span class="process-index">03</span>
+                    <h3>Lansiramo i rastemo</h3>
+                    <p>Za lansiranje obezbeđujem podršku, praćenje rezultata i predloge za rast.</p>
+                    <ul>
+                        <li>Lista provera za sigurno lansiranje</li>
+                        <li>Dashboard sa ključnim brojkama</li>
+                        <li>Predlozi kampanja i A/B testova</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section labs" aria-label="Innovation lab">
+            <div class="section-header" data-animate="fade-up">
+                <h2>VP Codes Labs — ideje koje testiram za sledeće projekte</h2>
+                <p>Kroz mini-eksperimente proveravam šta donosi veći angažman pre nego što predložim rešenje klijentima.</p>
+            </div>
+            <div class="lab-gallery" data-lab-gallery>
+                <article class="lab-card" data-animate="tilt" data-hover-tilt>
+                    <h4>NeuroBloom VR konfigurator</h4>
+                    <span class="lab-tag">3D iskustvo</span>
+                    <p>Kupci u virtuelnom okruženju biraju opcije i odmah vide rezultat.</p>
+                </article>
+                <article class="lab-card" data-animate="tilt" data-delay="150" data-hover-tilt>
+                    <h4>OrbitOps Command HUD</h4>
+                    <span class="lab-tag">Timovi u realnom vremenu</span>
+                    <p>Ploča koja timu prikazuje napredak zadataka i eksperimenata na jednom ekranu.</p>
+                </article>
+                <article class="lab-card" data-animate="tilt" data-delay="300" data-hover-tilt>
+                    <h4>Lumina Holographic Store</h4>
+                    <span class="lab-tag">Prodaja sa pričom</span>
+                    <p>3D prikaz proizvoda koji kupcima olakšava izbor i povećava angažman.</p>
+                </article>
+                <article class="lab-card" data-animate="tilt" data-delay="450" data-hover-tilt>
+                    <h4>FluxPay Investor Pulse</h4>
+                    <span class="lab-tag">Pametna analitika</span>
+                    <p>Pregled raspoloženja investitora koji pomaže prodajnom timu da reaguje na vreme.</p>
+                </article>
+            </div>
+        </section>
+
+
+        <section id="portfolio" class="section portfolio">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Projekti koji pričaju moju priču</h2>
+                <p>Najvažniji radovi koji pokazuju kako koristim dizajn, razvoj i AI da klijent brzo dobije rezultat.</p>
+            </div>
+            <div class="portfolio-shell">
+                <div class="portfolio-intro" data-animate="fade-up" data-delay="120">
+                    <p>U svakoj saradnji glavni fokus je brz prototip, jasna komunikacija i merljiv ishod. Izdvajam dve AI priče koje najbolje pokazuju kako vodim projekat od ideje do rezultata.</p>
+                </div>
+                <div class="portfolio-grid" data-animate="fade-up" data-delay="220">
+                    <article class="project-card">
+                        <header class="project-card__meta">
+                            <span class="pill success">AI CRM</span>
+                            <span class="project-year">2024</span>
+                        </header>
+                        <h3>SmartCampus CRM</h3>
+                        <p>CRM za fakultete koji objedinjuje komunikaciju, finansije i AI asistenta koji predlaže sledeće korake timu.</p>
+                        <ul class="project-points">
+                            <li>Jednostavan pregled studenata, uplata i dugovanja u realnom vremenu.</li>
+                            <li>AI predlozi za odgovore na upite i kreiranje ponuda za saradnje.</li>
+                            <li>Glavni ekran sa fakturama, ponudama i najvažnijim brojkama na jednom mestu.</li>
+                        </ul>
+                        <div class="project-outcomes">
+                            <div>
+                                <strong>72h</strong>
+                                <span>od briefa do prve verzije</span>
+                            </div>
+                            <div>
+                                <strong>+45%</strong>
+                                <span>brži odgovor studenata</span>
+                            </div>
+                            <div>
+                                <strong>1</strong>
+                                <span>centar za finansije i podršku</span>
+                            </div>
+                        </div>
+                        <div class="project-visual" aria-hidden="true">
+                            <span>Vizuel dolazi uskoro</span>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <header class="project-card__meta">
+                            <span class="pill success">AI + 3D</span>
+                            <span class="project-year">2023</span>
+                        </header>
+                        <h3>VisionSpace 3D Studio</h3>
+                        <p>Studio za arhitekte koji spaja 3D modelovanje i AI predloge kako bi klijent brže odabrao idealno rešenje.</p>
+                        <ul class="project-points">
+                            <li>AI bira stilove i materijale na osnovu zadatih preferenci.</li>
+                            <li>Radni prostor sa alatima za osvetljenje, teksture i pregled budžeta.</li>
+                            <li>Jedan klik za generisanje rendera spremnih za klijente.</li>
+                        </ul>
+                        <div class="project-outcomes">
+                            <div>
+                                <strong>8×</strong>
+                                <span>brže idejne skice</span>
+                            </div>
+                            <div>
+                                <strong>+63%</strong>
+                                <span>više prihvaćenih predloga</span>
+                            </div>
+                            <div>
+                                <strong>All-in-one</strong>
+                                <span>workspace za timove</span>
+                            </div>
+                        </div>
+                        <div class="project-visual" aria-hidden="true">
+                            <span>Galerija u pripremi</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section testimonials">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Šta lideri kažu o partnerstvu sa mnom</h2>
+                <p>Transparentna saradnja, jasna komunikacija i performanse koje pričaju umesto mene.</p>
+            </div>
+            <div class="testimonial-carousel" data-testimonial-carousel>
+                <button type="button" class="testimonial-control prev" aria-label="Prethodni utisak">&larr;</button>
+                <div class="testimonials-track">
+                    <figure class="testimonial" data-testimonial data-hover-tilt>
+                        <blockquote>
+                            „VP Codes je redefinisao kako naši investitori percipiraju brend. Tim koji razume biznis, dizajn i tehnologiju.“
+                        </blockquote>
+                        <figcaption>
+                            <strong>Ivana Stošić</strong>
+                            <span>COO @ FluxPay</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="testimonial" data-testimonial data-hover-tilt>
+                        <blockquote>
+                            „Njihovi dizajni dišu, animacije deluju prirodno, a rezultati se vide u svakoj metrici. Pravi partner za rast.“
+                        </blockquote>
+                        <figcaption>
+                            <strong>Marko Krstić</strong>
+                            <span>CEO @ Lumina</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="testimonial" data-testimonial data-hover-tilt>
+                        <blockquote>
+                            „Od discovery faze do lansiranja, sve je bilo orkestrirano besprekorno. Komunikacija, proces i finalni proizvod su top.“
+                        </blockquote>
+                        <figcaption>
+                            <strong>Anja Pavlović</strong>
+                            <span>Produkt menadžer @ OrbitOps</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="testimonial" data-testimonial data-hover-tilt>
+                        <blockquote>
+                            „Growth tim nas je doveo do 3x većeg pipeline-a u samo dva kvartala — i dalje smo u neverici.“
+                        </blockquote>
+                        <figcaption>
+                            <strong>Nemanja Ivanović</strong>
+                            <span>CMO @ Aurora Health</span>
+                        </figcaption>
+                    </figure>
+                </div>
+                <button type="button" class="testimonial-control next" aria-label="Sledeći utisak">&rarr;</button>
+            </div>
+        </section>
+
+        <section class="section awards" aria-label="nagrade i priznanja">
+            <div class="awards-grid">
+                <div class="award-card" data-animate="fade-up">
+                    <span class="award-year">2024</span>
+                    <h4>European Design Awards</h4>
+                    <p>Best Interaction Design za OrbitOps komandni centar.</p>
+                </div>
+                <div class="award-card" data-animate="fade-up" data-delay="150">
+                    <span class="award-year">2023</span>
+                    <h4>CSS Design Awards</h4>
+                    <p>Special Kudos & UI of the Day za Lumina marketplace.</p>
+                </div>
+                <div class="award-card" data-animate="fade-up" data-delay="300">
+                    <span class="award-year">2022</span>
+                    <h4>Awwwards</h4>
+                    <p>Site of the Month u kategoriji tehnoloških inovacija.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section faq" id="faq">
+            <div class="section-header" data-animate="fade-up">
+                <h2>Najčešća pitanja novih partnera</h2>
+                <p>Transparentni odgovori koji će vam pomoći da donesete odluku o sledećem koraku.</p>
+            </div>
+            <div class="faq-grid">
+                <details open data-animate="fade-up">
+                    <summary>Koliko traje tipičan projekat?</summary>
+                    <p>Discovery i strategija traju 2–4 nedelje, dizajn i razvoj od 8 do 16 nedelja, u zavisnosti od kompleksnosti i integracija.</p>
+                </details>
+                <details data-animate="fade-up" data-delay="150">
+                    <summary>Da li radiš sa internim timovima?</summary>
+                    <p>Apsolutno. Uključujem se u vaše ritmove, koristim iste alatke i komuniciram na Slack/Teams kanalima u realnom vremenu.</p>
+                </details>
+                <details data-animate="fade-up" data-delay="300">
+                    <summary>Kako izgleda ulaganje?</summary>
+                    <p>Radim u modelu mesečnih sprintova sa transparentnim paketima. Projekti kreću od 8.500€ mesečno i skaliraju se u skladu sa ciljevima.</p>
+                </details>
+                <details data-animate="fade-up" data-delay="450">
+                    <summary>Možemo li da vidimo reference?</summary>
+                    <p>Već na prvom pozivu delim pristup privatnom portfoliju sa video walkthrough prezentacijama produkata.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="section cta" id="contact">
+            <div class="cta-card" data-animate="fade-up">
+                <div class="cta-copy">
+                    <h2>Spreman/na si da zajednički pokrenemo novu digitalnu priču?</h2>
+                    <p>Popuni mini-brief i u roku od 24 sata čućeš se direktno sa mnom kako bismo definisali naredne korake.</p>
+                    <ul class="cta-list">
+                        <li>Personalizovani plan rasta</li>
+                        <li>Procena potrebnih tehnologija i tima</li>
+                        <li>Plan koraka za prvih 90 dana</li>
+                    </ul>
+                </div>
+                <form class="contact-form" aria-label="Kontakt forma">
+                    <div class="input-group">
+                        <label for="name">Ime i prezime</label>
+                        <input type="text" id="name" name="name" placeholder="Vaše ime" required>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="ime@kompanija.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="company">Kompanija</label>
+                            <input type="text" id="company" name="company" placeholder="Naziv kompanije">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="budget">Budžet</label>
+                            <select id="budget" name="budget">
+                                <option>do 5.000€</option>
+                                <option>5.000€ – 15.000€</option>
+                                <option>15.000€ – 50.000€</option>
+                                <option>50.000€+</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="timeline">Željeni start</label>
+                            <input type="text" id="timeline" name="timeline" placeholder="npr. oktobar 2024">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Opis projekta</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Šta želite da postignete?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Pošalji brief</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a class="brand brand--footer" href="#hero" aria-label="VP Codes Studio">
+                    <img src="assets/vp-codes-logo.svg" alt="VP Codes Studio logo">
+                    <div class="brand-copy">
+                        <strong>VP Codes</strong>
+                        <span>Studio</span>
+                    </div>
+                </a>
+                <p>Digitalne strategije, dizajn i razvoj koji isporučuju vrhunsko korisničko iskustvo.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#services">Usluge</a>
+                <a href="#accelerators">Start paket</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Behance">Behance</a>
+                <a href="#" aria-label="Dribbble">Dribbble</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> VP Codes Studio. Sva prava zadržana.</p>
+            <p>hello@vpcodes.studio · +381 60 123 45 67</p>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
